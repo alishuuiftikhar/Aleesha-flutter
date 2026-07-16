@@ -4,4 +4,4 @@ flutter course
 
 ## Screenshots
 
-![Home Screen](screenshots/APP.png)
+![Home Screen](Screenshots/APP.png)
