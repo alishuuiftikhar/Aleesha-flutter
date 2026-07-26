@@ -15,14 +15,15 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-## student_app
+# student_app
 
 ## Screenshots
 
-![Home Screen](Sreenshots/S_1.png)
+![Home Screen](Screenshots/S_1.png)
 ![Home Screen](Screenshots/S_2.png)
 ![Home Screen](Screenshots/S_3.png)
 ![Home Screen](Screenshots/S_4.png)
 ![Home Screen](Screenshots/S_5.png)
+
 
 
