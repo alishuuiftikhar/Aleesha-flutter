@@ -19,11 +19,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Screenshots
 
-![Home Screen](Screenshots/S_1.png)
-![Home Screen](Screenshots/S_2.png)
-![Home Screen](Screenshots/S_3.png)
-![Home Screen](Screenshots/S_4.png)
-![Home Screen](Screenshots/S_5.png)
+![Home Screen](Screenshots/app_1.png)
+![Home Screen](Screenshots/app_2.png)
+![Home Screen](Screenshots/app_3.png)
+![Home Screen](Screenshots/app_4.png)
+![Home Screen](Screenshots/app_5.png)
 
 
 
