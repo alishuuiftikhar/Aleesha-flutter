@@ -19,8 +19,8 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Screenshots
 
-![App Screen](Screenshoots/alisha_1.png)
-![App Screen](Screenshoots/alisha_2.png)
-![App Screen](Screenshoots/alisha_3.png)
-![App Screen](Screenshoots/alisha_4.png)
-![App Screen](Screenshoots/alisha_5.png)
+![App Screen](Screenshots/alisha_1.png)
+![App Screen](Screenshots/alisha_2.png)
+![App Screen](Screenshots/alisha_3.png)
+![App Screen](Screenshots/alisha_4.png)
+![App Screen](Screenshots/alisha_5.png)
