@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SeatFlow - Admin Console - App Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#131b2e",
+                      "tertiary-container": "#001a42",
+                      "tertiary-fixed-dim": "#adc6ff",
+                      "surface-bright": "#f8f9ff",
+                      "secondary-container": "#6cf8bb",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-container-high": "#dce9ff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#004395",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#cbdbf5",
+                      "tertiary": "#000000",
+                      "inverse-on-surface": "#eaf1ff",
+                      "tertiary-fixed": "#d8e2ff",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-secondary-fixed-variant": "#005236",
+                      "primary": "#000000",
+                      "surface-tint": "#565e74",
+                      "error": "#ba1a1a",
+                      "on-surface": "#0b1c30",
+                      "outline-variant": "#c6c6cd",
+                      "primary-fixed": "#dae2fd",
+                      "inverse-primary": "#bec6e0",
+                      "on-secondary-container": "#00714d",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "outline": "#76777d",
+                      "on-secondary-fixed": "#002113",
+                      "on-primary-container": "#7c839b",
+                      "on-tertiary-container": "#3980f4",
+                      "inverse-surface": "#213145",
+                      "secondary-fixed-dim": "#4edea3",
+                      "surface-container-highest": "#d3e4fe",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#001a42",
+                      "surface": "#f8f9ff",
+                      "secondary": "#006c49",
+                      "on-primary-fixed": "#131b2e",
+                      "on-surface-variant": "#45464d",
+                      "surface-container": "#e5eeff",
+                      "surface-variant": "#d3e4fe",
+                      "background": "#f8f9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter-mobile": "12px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "xl": "32px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "display": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "button": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        /* Tonal Layering for Inputs */
+        input[type="number"], input[type="time"], input[type="text"] {
+            border: 1px solid theme('colors.outline-variant');
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            transition: all 0.2s ease;
+        }
+        input[type="number"]:focus, input[type="time"]:focus, input[type="text"]:focus {
+            border-color: theme('colors.tertiary-container');
+            box-shadow: 0 0 0 2px rgba(0, 26, 66, 0.1);
+            outline: none;
+        }
+        /* Hide scrollbar for a cleaner look but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="h-full flex flex-col font-body-md bg-surface antialiased">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-md h-11 w-full z-50 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-sm hover:bg-surface-container-low transition-colors rounded-full p-1 active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-icon="meeting_room" data-weight="fill" style="font-variation-settings: 'FILL' 1;">meeting_room</span>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface">SeatFlow</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden hover:bg-surface-container-low transition-colors active:scale-95 transition-transform cursor-pointer border border-outline-variant">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Professional headshot of a female software house manager in her 30s, looking approachable but professional. Light background, well-lit, corporate modern style matching a SaaS enterprise dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd4cUoyXPWWA43SC62n2dIVCqv3uZ1KNuZuWhc1e-8TXuIz8AynsjKiZHeGEQ1G0vMqgECcPVGIhWNK8E2pwvcljQhecuRU2tv7g31imb7uUueSjccBDiu2gJmi8AIHNDwq97Gp3GpimAIbKGDIloW3Q1hkmqo5VZBaxxM2XGp3JYBktup3v7UW1itkNnQQu-FtCnUzyexYqmnXKrwCkJWqVhZBwMw4h0CkOu0SKnyZwVD06za41R4dA"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- NavigationDrawer (Desktop Only) -->
+<nav class="hidden md:flex flex-col h-full py-lg bg-surface-container-low shadow-md docked h-full w-72 left-0 flex-shrink-0 z-40">
+<div class="px-lg pb-lg mb-sm border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant bg-surface">
+<img alt="Admin User Avatar" class="w-full h-full object-cover" data-alt="Corporate logo or abstract geometric icon representing an admin console, using deep blues and crisp whites. Clean, vector style, highly legible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJdRH7yPWkHb10AuPrYQTa-Lnuf0JkQhAkbruC7LYRe44XkAyTwZuDZjF7os_m8So5NfC899OWXzL1qR4tqH8sA42pXKhvujUxDktuzMzbFdXHpgzB4vAddiXpeTwEAqeVdS4zIAsdGZeLUshEAYITL8euBHA9-R87ucU4Z-OyOpo_we3IUfp70DTc2xyWF5qD31qV0v4JY42CWImV9mh-tvDRwgW4l5Pp4wp8K2Nknit7EUPom6ojtg"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-tertiary-container">Admin Console</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Software House Manager</p>
+<p class="font-label-caps text-label-caps text-primary-container mt-1">Role: Teacher</p>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar py-sm">
+<ul class="space-y-sm px-sm">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-r-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Daily Reports</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-r-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-body-md text-body-md">Seat Inventory</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-r-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="font-body-md text-body-md">Approval Queue</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-r-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-body-md text-body-md">Fine Management</span>
+</a>
+</li>
+<li>
+<!-- Active State -->
+<a class="flex items-center gap-md px-md py-sm rounded-r-full text-on-secondary-container bg-secondary-container font-bold hover:bg-surface-container-high transition-colors active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-body-md text-body-md">App Settings</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-lg bg-surface">
+<div class="max-w-4xl mx-auto space-y-lg">
+<!-- Header -->
+<div>
+<h2 class="font-display text-display text-on-surface">Seat Management Settings</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">Configure global constraints and reservation rules.</p>
+</div>
+<!-- Settings Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Global Configuration Card -->
+<div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-md">
+<div class="flex items-center gap-sm pb-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="tune">tune</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Global Constraints</h3>
+</div>
+<div class="space-y-md">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs" for="totalSeats">Set Total Available Seats</label>
+<input class="w-full rounded-lg px-md py-sm font-label-caps text-label-caps focus:ring-0" id="totalSeats" min="0" type="number" value="150"/>
+<p class="font-body-sm text-body-sm text-outline mt-1">Maximum physical capacity for reservations.</p>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs" for="cutoffTime">Set Daily Reservation Cutoff Time</label>
+<input class="w-full rounded-lg px-md py-sm font-label-caps text-label-caps focus:ring-0" id="cutoffTime" type="time" value="10:00"/>
+<p class="font-body-sm text-body-sm text-outline mt-1">Time when daily reservations lock automatically.</p>
+</div>
+</div>
+</div>
+<!-- Fine Management Card -->
+<div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-md">
+<div class="flex items-center justify-between pb-sm border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error" data-icon="gavel">gavel</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Fine Management</h3>
+</div>
+<span class="bg-error-container text-on-error-container px-sm py-xs rounded-full font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning">warning</span> Active
+                            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Define strict penalties for no-shows to maintain high seat utilization.</p>
+<div class="space-y-md mt-sm">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs" for="fineAmount">No-Show Penalty (Points/Currency)</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-md text-on-surface-variant font-label-caps">-</span>
+<input class="w-full rounded-lg pl-xl pr-md py-sm font-label-caps text-label-caps focus:ring-0" id="fineAmount" min="0" type="number" value="50"/>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs" for="gracePeriod">Grace Period (Minutes)</label>
+<input class="w-full rounded-lg px-md py-sm font-label-caps text-label-caps focus:ring-0" id="gracePeriod" min="0" type="number" value="15"/>
+<p class="font-body-sm text-body-sm text-outline mt-1">Time allowed before considered a no-show.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex justify-end gap-md pt-lg border-t border-outline-variant mt-xl">
+<button class="px-lg py-sm rounded-lg font-button text-button text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors active:scale-95">Discard Changes</button>
+<button class="px-lg py-sm rounded-lg font-button text-button bg-tertiary-container text-on-tertiary hover:opacity-90 transition-opacity active:scale-95 shadow-sm">Save Configuration</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

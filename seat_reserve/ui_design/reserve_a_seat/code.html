@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SeatFlow - Student Seat Reservation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#131b2e",
+                        "tertiary-container": "#001a42",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-container": "#6cf8bb",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary": "#000000",
+                        "surface-tint": "#565e74",
+                        "error": "#ba1a1a",
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c6c6cd",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary-container": "#00714d",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "outline": "#76777d",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-container": "#7c839b",
+                        "on-tertiary-container": "#3980f4",
+                        "inverse-surface": "#213145",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-container-highest": "#d3e4fe",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001a42",
+                        "surface": "#f8f9ff",
+                        "secondary": "#006c49",
+                        "on-primary-fixed": "#131b2e",
+                        "on-surface-variant": "#45464d",
+                        "surface-container": "#e5eeff",
+                        "surface-variant": "#d3e4fe",
+                        "background": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "gutter-mobile": "12px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "button": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar (Hidden on Mobile Nav) -->
+<header class="hidden md:flex items-center justify-between px-md h-11 w-full z-50 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">meeting_room</span>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">SeatFlow</span>
+</div>
+<div class="flex items-center gap-md">
+<nav class="flex gap-md">
+<a class="text-on-surface-variant font-button text-button hover:bg-surface-container-low transition-colors px-sm py-xs rounded" href="#">Dashboard</a>
+<a class="text-primary font-bold font-button text-button hover:bg-surface-container-low transition-colors px-sm py-xs rounded" href="#">Seats</a>
+<a class="text-on-surface-variant font-button text-button hover:bg-surface-container-low transition-colors px-sm py-xs rounded" href="#">Students</a>
+<a class="text-on-surface-variant font-button text-button hover:bg-surface-container-low transition-colors px-sm py-xs rounded" href="#">Settings</a>
+</nav>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="user_profile_avatar" class="w-full h-full object-cover" data-alt="A small, professional headshot of a young adult male student in a bright, modern corporate setting, soft lighting, sharp focus, 1:1 aspect ratio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0jvFaWVgRf_PPR5L5wh_9S_jr41139aWTz5kvagezRSKjgP_nWZIbH8lj-BqtTGvB8sPbci51HZA5LYsAtdVpEvlYmi3oDpCoYYZwi10Q6MVotVdaFAXK2pkYuZJHZr3ALJzrdDSuYvPbM6YLcTheAYyjUguiHQwCCK4r18GTxSRq5oLMnrHlyAsfF55YHTdNLcLSaNO-0rPlmYVjTj60xa1hVyqmWgsFyegg0cHChNRWHhJNNPNofg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-5xl mx-auto p-margin-mobile md:p-lg space-y-lg">
+<!-- Header Section -->
+<section class="space-y-sm">
+<h1 class="font-display text-display text-on-surface">Available Seats for Today</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Review the current workspace capacity and secure your spot before the 10:00 AM cutoff.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Reservation Action Card (Span 2) -->
+<div class="md:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-md opacity-10">
+<span class="material-symbols-outlined text-[120px] text-primary">event_seat</span>
+</div>
+<div class="relative z-10 space-y-md flex-grow">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Main Hub - Zone B</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Open Seating Environment</p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] icon-fill">check_circle</span>
+<span class="font-label-caps text-label-caps">Available</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm pt-sm">
+<div class="space-y-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant block">Capacity</span>
+<span class="font-label-caps text-label-caps text-on-surface block text-[16px]">42 / 50</span>
+</div>
+<div class="space-y-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant block">Desk Type</span>
+<span class="font-body-md text-body-md text-on-surface block">Standard Ergonomic</span>
+</div>
+</div>
+</div>
+<div class="relative z-10 pt-lg border-t border-outline-variant mt-md">
+<button class="w-full bg-primary text-on-primary font-button text-button py-sm rounded-lg hover:bg-surface-tint transition-colors active:scale-[0.98] flex items-center justify-center gap-sm h-11">
+                        Reserve My Seat
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<p class="font-label-caps text-label-caps text-center text-on-surface-variant mt-sm">Deadline: 10:00 AM Today</p>
+</div>
+</div>
+<!-- Fine System Warning Card (Span 1) -->
+<div class="md:col-span-1 bg-error-container border border-error/20 rounded-xl p-md flex flex-col justify-between">
+<div class="space-y-sm">
+<div class="flex items-start gap-sm text-on-error-container">
+<span class="material-symbols-outlined icon-fill mt-xs">warning</span>
+<div>
+<h3 class="font-headline-md text-headline-md">No-show Fine Policy</h3>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-error-container/80 pl-8">
+                        Reserving a seat and failing to check-in by 10:15 AM will result in a <strong>$15 No-show Fine</strong> applied to your account.
+                    </p>
+</div>
+<div class="mt-md pl-8">
+<a class="font-button text-button text-on-error-container underline hover:text-error transition-colors" href="#">Review Policy</a>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-sm bg-surface border-t border-outline-variant rounded-t-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary transition-opacity active:scale-90 w-16" href="#">
+<span class="material-symbols-outlined mb-xs">dashboard</span>
+<span class="font-label-caps text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-md py-xs active:scale-90 transition-all w-20" href="#">
+<span class="material-symbols-outlined icon-fill mb-xs">event_seat</span>
+<span class="font-label-caps text-[10px] font-bold">Seats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary transition-opacity active:scale-90 w-16" href="#">
+<span class="material-symbols-outlined mb-xs">group</span>
+<span class="font-label-caps text-[10px]">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary transition-opacity active:scale-90 w-16" href="#">
+<span class="material-symbols-outlined mb-xs">settings</span>
+<span class="font-label-caps text-[10px]">Settings</span>
+</a>
+</nav>
+</body></html>

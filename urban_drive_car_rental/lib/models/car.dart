@@ -1,0 +1,148 @@
+class Car {
+  final String id;
+  final String name;
+  final String brand;
+  final double pricePerDay;
+  final String imageUrl;
+  final double rating;
+  final String type; // SUV, Sedan, Luxury, etc.
+  final int transmission; // 0 for Auto, 1 for Manual
+  final int seats;
+  final String fuelType;
+
+  Car({
+    required this.id,
+    required this.name,
+    required this.brand,
+    required this.pricePerDay,
+    required this.imageUrl,
+    required this.rating,
+    required this.type,
+    required this.transmission,
+    required this.seats,
+    required this.fuelType,
+  });
+}
+
+final List<Car> demoCars = [
+  Car(
+    id: '1',
+    name: 'Toyota Land Cruiser',
+    brand: 'Toyota',
+    pricePerDay: 120000,
+    imageUrl: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1200&auto=format',
+    rating: 5.0,
+    type: 'SUV',
+    transmission: 0,
+    seats: 7,
+    fuelType: 'Diesel',
+  ),
+  Car(
+    id: '2',
+    name: 'Toyota Land Cruiser Prado',
+    brand: 'Toyota',
+    pricePerDay: 75000,
+    imageUrl: 'https://images.unsplash.com/photo-1647462495804-0c2d3086c879?q=80&w=1200&auto=format',
+    rating: 4.9,
+    type: 'SUV',
+    transmission: 0,
+    seats: 7,
+    fuelType: 'Diesel',
+  ),
+  Car(
+    id: '3',
+    name: 'Toyota Fortuner',
+    brand: 'Toyota',
+    pricePerDay: 45000,
+    imageUrl: 'https://images.unsplash.com/photo-1592534571990-25257924c520?q=80&w=1200&auto=format',
+    rating: 4.8,
+    type: 'SUV',
+    transmission: 0,
+    seats: 7,
+    fuelType: 'Diesel',
+  ),
+  Car(
+    id: '4',
+    name: 'Lexus LX 600',
+    brand: 'Lexus',
+    pricePerDay: 150000,
+    imageUrl: 'https://images.unsplash.com/photo-1635338667509-f8c6001cc3a7?q=80&w=1200&auto=format',
+    rating: 5.0,
+    type: 'Luxury',
+    transmission: 0,
+    seats: 7,
+    fuelType: 'Petrol',
+  ),
+  Car(
+    id: '5',
+    name: 'Mercedes-Benz S-Class',
+    brand: 'Mercedes-Benz',
+    pricePerDay: 110000,
+    imageUrl: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1200&auto=format',
+    rating: 5.0,
+    type: 'Luxury',
+    transmission: 0,
+    seats: 5,
+    fuelType: 'Petrol',
+  ),
+  Car(
+    id: '6',
+    name: 'Mercedes-Benz G-Class',
+    brand: 'Mercedes-Benz',
+    pricePerDay: 180000,
+    imageUrl: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format',
+    rating: 5.0,
+    type: 'SUV',
+    transmission: 0,
+    seats: 5,
+    fuelType: 'Petrol',
+  ),
+  Car(
+    id: '7',
+    name: 'BMW 7 Series',
+    brand: 'BMW',
+    pricePerDay: 105000,
+    imageUrl: 'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=1200&auto=format',
+    rating: 4.9,
+    type: 'Luxury',
+    transmission: 0,
+    seats: 5,
+    fuelType: 'Petrol',
+  ),
+  Car(
+    id: '8',
+    name: 'BMW X7',
+    brand: 'BMW',
+    pricePerDay: 95000,
+    imageUrl: 'https://images.unsplash.com/photo-1556122071-e404be173264?q=80&w=1200&auto=format',
+    rating: 4.9,
+    type: 'SUV',
+    transmission: 0,
+    seats: 7,
+    fuelType: 'Petrol',
+  ),
+  Car(
+    id: '9',
+    name: 'Range Rover Vogue',
+    brand: 'Land Rover',
+    pricePerDay: 140000,
+    imageUrl: 'https://images.unsplash.com/photo-1614200187524-dc4b8923460f?q=80&w=1200&auto=format',
+    rating: 5.0,
+    type: 'Luxury',
+    transmission: 0,
+    seats: 5,
+    fuelType: 'Diesel',
+  ),
+  Car(
+    id: '10',
+    name: 'Audi Q8',
+    brand: 'Audi',
+    pricePerDay: 85000,
+    imageUrl: 'https://images.unsplash.com/photo-1566473062137-4925e4044b3e?q=80&w=1200&auto=format',
+    rating: 4.8,
+    type: 'SUV',
+    transmission: 0,
+    seats: 5,
+    fuelType: 'Petrol',
+  ),
+];
