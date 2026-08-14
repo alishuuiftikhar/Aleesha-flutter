@@ -25,30 +25,33 @@ class MiniPlayer extends StatelessWidget {
             );
           },
           child: Container(
-            height: 70,
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            height: 75,
+            margin: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
               color: AppTheme.primaryColor,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(20),
               boxShadow: [
-                BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 10, offset: const Offset(0, 4)),
+                BoxShadow(
+                  color: AppTheme.primaryColor.withOpacity(0.3), 
+                  blurRadius: 15, 
+                  offset: const Offset(0, 8)
+                ),
               ],
             ),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: CachedNetworkImage(
-                      imageUrl: book.coverUrl,
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.cover,
-                      errorWidget: (context, url, error) => const Icon(Icons.headphones, color: Colors.white),
-                    ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: CachedNetworkImage(
+                    imageUrl: book.coverUrl,
+                    width: 48,
+                    height: 48,
+                    fit: BoxFit.cover,
+                    errorWidget: (context, url, error) => const Icon(Icons.headphones_rounded, color: Colors.white),
                   ),
                 ),
+                const SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -56,13 +59,16 @@ class MiniPlayer extends StatelessWidget {
                     children: [
                       Text(
                         book.title,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
+                      const SizedBox(height: 2),
                       Text(
                         book.author,
-                        style: const TextStyle(color: Colors.white70, fontSize: 12),
+                        style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 12),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
@@ -73,17 +79,18 @@ class MiniPlayer extends StatelessWidget {
                     final isPlaying = snapshot.data ?? false;
                     return IconButton(
                       icon: Icon(
-                        isPlaying ? Icons.pause : Icons.play_arrow,
+                        isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
                         color: Colors.white,
+                        size: 32,
                       ),
                       onPressed: audioProvider.togglePlayPause,
                     );
                   },
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close, color: Colors.white70),
+                  icon: Icon(Icons.close_rounded, color: Colors.white.withOpacity(0.4), size: 20),
                   onPressed: () {
-                    // Stop logic could be here
+                    // Logic to clear/stop could be added to provider
                   },
                 ),
               ],

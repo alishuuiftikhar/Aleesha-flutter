@@ -43,18 +43,19 @@ class _ExploreScreenState extends State<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.backgroundColor,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
               child: Text(
-                "Explore",
+                "Discover",
                 style: GoogleFonts.philosopher(
-                  fontSize: 32,
+                  fontSize: 34,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppTheme.primaryColor,
                 ),
               ),
             ),
@@ -64,10 +65,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
             ),
             const SizedBox(height: 24),
             _buildFilterList(),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             Expanded(
               child: _isSearching 
-                ? const Center(child: CircularProgressIndicator(color: AppTheme.secondaryColor))
+                ? const Center(child: CircularProgressIndicator(color: AppTheme.accentColor))
                 : _buildBookGrid(),
             ),
           ],
@@ -80,22 +81,25 @@ class _ExploreScreenState extends State<ExploreScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: AppTheme.cardColor,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: AppTheme.primaryColor.withOpacity(0.08)),
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 10, offset: const Offset(0, 4)),
+        ],
       ),
       child: TextField(
         controller: _searchController,
         onChanged: _onSearch,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: AppTheme.primaryColor),
         decoration: InputDecoration(
-          icon: const Icon(Icons.search_rounded, color: AppTheme.textSecondaryColor),
-          hintText: "Search books, authors or ISBN...",
-          hintStyle: const TextStyle(color: AppTheme.textSecondaryColor),
+          icon: const Icon(Icons.search_rounded, color: AppTheme.secondaryColor),
+          hintText: "Search titles, authors, ISBN...",
+          hintStyle: TextStyle(color: AppTheme.textSecondaryColor.withOpacity(0.7)),
           border: InputBorder.none,
           suffixIcon: _searchController.text.isNotEmpty 
             ? IconButton(
-                icon: const Icon(Icons.clear, color: AppTheme.textSecondaryColor),
+                icon: const Icon(Icons.clear_rounded, color: AppTheme.textSecondaryColor),
                 onPressed: () {
                   _searchController.clear();
                   _onSearch("");
@@ -109,7 +113,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
   Widget _buildFilterList() {
     return SizedBox(
-      height: 40,
+      height: 44,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -132,12 +136,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 });
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 22),
                 decoration: BoxDecoration(
-                  color: isSelected ? AppTheme.secondaryColor : AppTheme.cardColor,
-                  borderRadius: BorderRadius.circular(20),
+                  color: isSelected ? AppTheme.primaryColor : Colors.white,
+                  borderRadius: BorderRadius.circular(25),
                   border: Border.all(
-                    color: isSelected ? AppTheme.secondaryColor : Colors.white.withOpacity(0.05)
+                    color: isSelected ? AppTheme.primaryColor : AppTheme.primaryColor.withOpacity(0.08)
                   ),
                 ),
                 alignment: Alignment.center,
@@ -163,11 +167,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.search_off_rounded, size: 64, color: AppTheme.cardColor),
-            const SizedBox(height: 16),
-            const Text(
-              "No books found matching your search.",
-              style: TextStyle(color: AppTheme.textSecondaryColor),
+            Icon(Icons.search_off_rounded, size: 80, color: AppTheme.primaryColor.withOpacity(0.1)),
+            const SizedBox(height: 20),
+            Text(
+              "No stories found.",
+              style: TextStyle(color: AppTheme.textSecondaryColor, fontSize: 16, fontWeight: FontWeight.w500),
             ),
           ],
         ),
@@ -175,12 +179,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
     }
 
     return GridView.builder(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.55,
+        childAspectRatio: 0.58,
         crossAxisSpacing: 20,
-        mainAxisSpacing: 24,
+        mainAxisSpacing: 30,
       ),
       itemCount: _searchResults.length,
       itemBuilder: (context, index) {

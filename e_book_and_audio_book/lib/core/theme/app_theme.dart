@@ -2,26 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Premium Midnight Theme
-  static const Color primaryColor = Color(0xFF0F172A); // Midnight Navy
-  static const Color secondaryColor = Color(0xFF7C3AED); // Royal Purple
-  static const Color accentColor = Color(0xFFF59E0B); // Soft Gold
-  static const Color backgroundColor = Color(0xFF020617); // Deepest Navy
-  static const Color cardColor = Color(0xFF1E293B); // Slate Blue/Gray
-  static const Color textColor = Colors.white;
-  static const Color textSecondaryColor = Color(0xFF94A3B8);
+  // Elegant Classic Library Theme (Warm & Professional)
+  static const Color primaryColor = Color(0xFF2C1810); // Deep Espresso Brown
+  static const Color secondaryColor = Color(0xFF8D6E63); // Muted Terracotta
+  static const Color accentColor = Color(0xFFC5A028); // Antique Gold
+  static const Color backgroundColor = Color(0xFFF9F7F2); // Warm Cream Paper
+  static const Color cardColor = Colors.white;
+  static const Color textColor = Color(0xFF2C1810);
+  static const Color textSecondaryColor = Color(0xFF757575);
 
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: secondaryColor,
-        brightness: Brightness.dark,
-        primary: secondaryColor,
+        seedColor: primaryColor,
+        primary: primaryColor,
         secondary: accentColor,
         surface: cardColor,
         background: backgroundColor,
+        onPrimary: Colors.white,
+        onSurface: textColor,
       ),
       scaffoldBackgroundColor: backgroundColor,
       textTheme: GoogleFonts.philosopherTextTheme().apply(
@@ -33,22 +34,25 @@ class AppTheme {
         foregroundColor: textColor,
         elevation: 0,
         centerTitle: true,
+        iconTheme: IconThemeData(color: textColor),
       ),
       cardTheme: CardThemeData(
         color: cardColor,
-        elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        elevation: 2,
+        shadowColor: Colors.black12,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: secondaryColor,
+          backgroundColor: primaryColor,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          elevation: 0,
         ),
       ),
     );
   }
 
-  static ThemeData get darkTheme => lightTheme; // For this app, they are the same premium theme
+  static ThemeData get darkTheme => lightTheme;
 }

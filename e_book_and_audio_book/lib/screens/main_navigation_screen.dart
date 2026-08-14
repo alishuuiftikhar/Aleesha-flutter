@@ -41,8 +41,14 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: AppTheme.backgroundColor,
-          border: const Border(top: BorderSide(color: Colors.white10)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.04),
+              blurRadius: 20,
+              offset: const Offset(0, -5),
+            ),
+          ],
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -52,36 +58,46 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               currentIndex: _selectedIndex,
               onTap: _onItemTapped,
               type: BottomNavigationBarType.fixed,
-              backgroundColor: AppTheme.backgroundColor,
-              selectedItemColor: AppTheme.secondaryColor,
+              backgroundColor: Colors.white,
+              selectedItemColor: AppTheme.primaryColor,
               unselectedItemColor: AppTheme.textSecondaryColor,
-              selectedFontSize: 12,
-              unselectedFontSize: 12,
+              selectedFontSize: 11,
+              unselectedFontSize: 11,
               elevation: 0,
               items: const [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home_rounded),
-                  activeIcon: Icon(Icons.home_rounded),
+                  icon: Padding(
+                    padding: EdgeInsets.only(bottom: 4),
+                    child: Icon(Icons.home_rounded),
+                  ),
                   label: 'Home',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.explore_rounded),
-                  activeIcon: Icon(Icons.explore_rounded),
+                  icon: Padding(
+                    padding: EdgeInsets.only(bottom: 4),
+                    child: Icon(Icons.explore_rounded),
+                  ),
                   label: 'Explore',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.library_books_rounded),
-                  activeIcon: Icon(Icons.library_books_rounded),
+                  icon: Padding(
+                    padding: EdgeInsets.only(bottom: 4),
+                    child: Icon(Icons.auto_stories_rounded),
+                  ),
                   label: 'Library',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.headphones_rounded),
-                  activeIcon: Icon(Icons.headphones_rounded),
+                  icon: Padding(
+                    padding: EdgeInsets.only(bottom: 4),
+                    child: Icon(Icons.headphones_rounded),
+                  ),
                   label: 'Audio',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person_rounded),
-                  activeIcon: Icon(Icons.person_rounded),
+                  icon: Padding(
+                    padding: EdgeInsets.only(bottom: 4),
+                    child: Icon(Icons.person_rounded),
+                  ),
                   label: 'Profile',
                 ),
               ],

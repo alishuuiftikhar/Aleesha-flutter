@@ -15,14 +15,13 @@ class BookCard extends StatelessWidget {
   const BookCard({
     super.key,
     required this.book,
-    this.width = 150,
+    this.width = 155,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Save to SQLite if it's from search and not yet saved
         if (book.id == null) {
           Provider.of<BookProvider>(context, listen: false).saveBook(book);
         }
@@ -45,10 +44,11 @@ class BookCard extends StatelessWidget {
               book.title,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
-                color: AppTheme.textColor,
+                color: AppTheme.primaryColor,
+                height: 1.2,
               ),
             ),
             const SizedBox(height: 4),
@@ -68,10 +68,10 @@ class BookCard extends StatelessWidget {
                 const SizedBox(width: 4),
                 Text(
                   book.rating > 0 ? book.rating.toStringAsFixed(1) : "4.5",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 13, 
                     fontWeight: FontWeight.bold,
-                    color: AppTheme.textColor,
+                    color: AppTheme.primaryColor,
                   ),
                 ),
                 const Spacer(),
@@ -87,27 +87,27 @@ class BookCard extends StatelessWidget {
   Widget _buildCoverImage(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(22),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 10,
-            offset: const Offset(0, 6),
+            color: AppTheme.primaryColor.withOpacity(0.12),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
           ),
         ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(22),
         child: CachedNetworkImage(
           imageUrl: book.coverUrl,
-          height: width * 1.5,
+          height: width * 1.45,
           width: width,
           fit: BoxFit.cover,
           placeholder: (context, url) => Shimmer.fromColors(
-            baseColor: AppTheme.cardColor,
-            highlightColor: AppTheme.secondaryColor.withOpacity(0.1),
+            baseColor: Colors.grey[200]!,
+            highlightColor: Colors.white,
             child: Container(
-              height: width * 1.5,
+              height: width * 1.45,
               width: width,
               color: Colors.white,
             ),
@@ -120,27 +120,26 @@ class BookCard extends StatelessWidget {
 
   Widget _buildErrorWidget() {
     return Container(
-      height: width * 1.5,
+      height: width * 1.45,
       width: width,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [AppTheme.primaryColor, AppTheme.secondaryColor],
+          colors: [AppTheme.primaryColor.withOpacity(0.1), AppTheme.backgroundColor],
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.menu_book_rounded, size: 40, color: AppTheme.accentColor),
-          const SizedBox(height: 8),
+          const Icon(Icons.auto_stories_rounded, size: 44, color: AppTheme.secondaryColor),
+          const SizedBox(height: 10),
           Text(
             'BookNest',
             style: GoogleFonts.philosopher(
-              color: Colors.white.withOpacity(0.8),
-              fontSize: 14,
+              color: AppTheme.primaryColor.withOpacity(0.4),
+              fontSize: 16,
               fontWeight: FontWeight.bold,
-              letterSpacing: 1.2,
             ),
           ),
         ],
@@ -151,12 +150,12 @@ class BookCard extends StatelessWidget {
   Widget _buildTypeBadge() {
     bool isAudio = book.type == BookType.audiobook;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: isAudio ? AppTheme.accentColor.withOpacity(0.2) : AppTheme.secondaryColor.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(8),
+        color: isAudio ? AppTheme.accentColor.withOpacity(0.1) : AppTheme.secondaryColor.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: isAudio ? AppTheme.accentColor : AppTheme.secondaryColor,
+          color: isAudio ? AppTheme.accentColor.withOpacity(0.3) : AppTheme.secondaryColor.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -165,7 +164,7 @@ class BookCard extends StatelessWidget {
         style: TextStyle(
           fontSize: 9,
           fontWeight: FontWeight.bold,
-          color: isAudio ? AppTheme.accentColor : Colors.white,
+          color: isAudio ? AppTheme.accentColor : AppTheme.secondaryColor,
         ),
       ),
     );

@@ -17,6 +17,7 @@ class BookProvider with ChangeNotifier {
   bool _isOffline = false;
   bool get isOffline => _isOffline;
 
+  // Expanded list of 30 iconic books for automatic fetching
   final List<Map<String, dynamic>> _targetBooks = [
     {"title": "Atomic Habits", "category": "Self Development"},
     {"title": "The Alchemist", "category": "Fiction"},
@@ -37,7 +38,17 @@ class BookProvider with ChangeNotifier {
     {"title": "The Psychology of Money", "category": "Business"},
     {"title": "The Hobbit", "category": "Fiction"},
     {"title": "1984", "category": "Fiction"},
-    {"title": "The Book Thief", "category": "Fiction"}
+    {"title": "The Book Thief", "category": "Fiction"},
+    {"title": "Sapiens: A Brief History of Humankind", "category": "History"},
+    {"title": "The 48 Laws of Power", "category": "Self Development"},
+    {"title": "Man's Search for Meaning", "category": "Philosophy"},
+    {"title": "Zero to One", "category": "Business"},
+    {"title": "The Silent Patient", "category": "Mystery"},
+    {"title": "Educated", "category": "Education"},
+    {"title": "Becoming", "category": "Biography"},
+    {"title": "Steve Jobs", "category": "Technology"},
+    {"title": "Dune", "category": "Science"},
+    {"title": "The Art of War", "category": "History"}
   ];
 
   Future<void> initialize() async {
@@ -48,17 +59,17 @@ class BookProvider with ChangeNotifier {
     var connectivityResult = await Connectivity().checkConnectivity();
     _isOffline = connectivityResult == ConnectivityResult.none;
 
-    // Load what we have in SQLite first
+    // Load existing books immediately
     _books = await _dbHelper.getAllBooks();
     
     if (_books.isEmpty && !_isOffline) {
-      // First time, fetch all targets
+      // First run: fetch all 30 books
       await _fetchInitialBooks();
     } else {
       _isLoading = false;
       notifyListeners();
       
-      // Refresh in background if online
+      // Refresh logic in background if online to ensure latest covers
       if (!_isOffline) {
         _refreshBooksInBackground();
       }
@@ -68,22 +79,26 @@ class BookProvider with ChangeNotifier {
   Future<void> _fetchInitialBooks() async {
     for (int i = 0; i < _targetBooks.length; i++) {
       final target = _targetBooks[i];
-      // Alternate ebook/audiobook for diversity
-      BookType type = (i % 4 == 0) ? BookType.audiobook : BookType.ebook;
+      // Distribute types: every 3rd book is an audiobook
+      BookType type = (i % 3 == 0) ? BookType.audiobook : BookType.ebook;
       
-      Book? book = await _apiService.fetchBookByTitle(
-        target['title'], 
-        category: target['category'],
-        type: type
-      );
-      
-      if (book != null) {
-        await _dbHelper.insertOrUpdateBook(book);
-        // Load partially for better UX
-        if (i % 5 == 0) {
-          _books = await _dbHelper.getAllBooks();
-          notifyListeners();
+      try {
+        Book? book = await _apiService.fetchBookByTitle(
+          target['title'], 
+          category: target['category'],
+          type: type
+        );
+        
+        if (book != null) {
+          await _dbHelper.insertOrUpdateBook(book);
+          // UI update every 3 books for smooth feeling
+          if (i % 3 == 0) {
+            _books = await _dbHelper.getAllBooks();
+            notifyListeners();
+          }
         }
+      } catch (e) {
+        debugPrint("Error fetching book ${target['title']}: $e");
       }
     }
     _books = await _dbHelper.getAllBooks();
@@ -92,10 +107,15 @@ class BookProvider with ChangeNotifier {
   }
 
   Future<void> _refreshBooksInBackground() async {
+    // Silently update metadata without showing loader
     for (var target in _targetBooks) {
-       Book? book = await _apiService.fetchBookByTitle(target['title'], category: target['category']);
-       if (book != null) {
-         await _dbHelper.insertOrUpdateBook(book);
+       try {
+         Book? book = await _apiService.fetchBookByTitle(target['title'], category: target['category']);
+         if (book != null) {
+           await _dbHelper.insertOrUpdateBook(book);
+         }
+       } catch (e) {
+         debugPrint("Background sync failed for ${target['title']}");
        }
     }
     _books = await _dbHelper.getAllBooks();
@@ -133,18 +153,18 @@ class BookProvider with ChangeNotifier {
       return _books;
     }
     
-    // Search SQLite first
+    // 1. Search locally first
     final localResults = _books.where((b) => 
       b.title.toLowerCase().contains(query.toLowerCase()) || 
       b.author.toLowerCase().contains(query.toLowerCase())
     ).toList();
 
-    if (localResults.isNotEmpty || _isOffline) {
-      return localResults;
+    // 2. If no local results and online, fetch from API
+    if (localResults.isEmpty && !_isOffline) {
+      return await _apiService.searchOnline(query);
     }
 
-    // Fallback to Online API
-    return await _apiService.searchOnline(query);
+    return localResults;
   }
 
   Future<void> saveBook(Book book) async {

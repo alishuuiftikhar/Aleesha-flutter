@@ -17,6 +17,7 @@ class BookDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.backgroundColor,
       body: CustomScrollView(
         slivers: [
           _buildAppBar(context),
@@ -33,7 +34,7 @@ class BookDetailsScreen extends StatelessWidget {
                   _buildDescriptionSection(),
                   const SizedBox(height: 40),
                   _buildMetadataList(),
-                  const SizedBox(height: 100), // Space for bottom button
+                  const SizedBox(height: 120), // Space for bottom button
                 ],
               ),
             ),
@@ -49,6 +50,7 @@ class BookDetailsScreen extends StatelessWidget {
       expandedHeight: 500,
       pinned: true,
       backgroundColor: AppTheme.backgroundColor,
+      iconTheme: const IconThemeData(color: Colors.white),
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           fit: StackFit.expand,
@@ -66,7 +68,7 @@ class BookDetailsScreen extends StatelessWidget {
                   colors: [
                     Colors.black.withOpacity(0.4),
                     Colors.transparent,
-                    AppTheme.backgroundColor.withOpacity(0.8),
+                    AppTheme.backgroundColor.withOpacity(0.5),
                     AppTheme.backgroundColor,
                   ],
                   stops: const [0.0, 0.4, 0.8, 1.0],
@@ -86,7 +88,7 @@ class BookDetailsScreen extends StatelessWidget {
                 return Container(
                   margin: const EdgeInsets.only(right: 16),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.3),
+                    color: Colors.black.withOpacity(0.2),
                     shape: BoxShape.circle,
                   ),
                   child: IconButton(
@@ -112,40 +114,40 @@ class BookDetailsScreen extends StatelessWidget {
         Row(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
               decoration: BoxDecoration(
-                color: AppTheme.secondaryColor.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: AppTheme.secondaryColor),
+                color: AppTheme.secondaryColor.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: AppTheme.secondaryColor.withOpacity(0.3)),
               ),
               child: Text(
                 book.category.toUpperCase(),
-                style: const TextStyle(color: AppTheme.secondaryColor, fontWeight: FontWeight.bold, fontSize: 10),
+                style: const TextStyle(color: AppTheme.secondaryColor, fontWeight: FontWeight.bold, fontSize: 10, letterSpacing: 1),
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 14),
             Text(
               book.type == BookType.ebook ? "E-BOOK" : "AUDIOBOOK",
-              style: const TextStyle(color: AppTheme.textSecondaryColor, fontSize: 10, fontWeight: FontWeight.bold),
+              style: const TextStyle(color: AppTheme.textSecondaryColor, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1),
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 20),
         Text(
           book.title,
           style: GoogleFonts.philosopher(
-            fontSize: 32,
+            fontSize: 34,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
-            height: 1.2,
+            color: AppTheme.primaryColor,
+            height: 1.1,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         Text(
           "by ${book.author}",
-          style: const TextStyle(
-            fontSize: 18,
-            color: AppTheme.textSecondaryColor,
+          style: TextStyle(
+            fontSize: 19,
+            color: AppTheme.primaryColor.withOpacity(0.7),
             fontStyle: FontStyle.italic,
           ),
         ),
@@ -167,20 +169,23 @@ class BookDetailsScreen extends StatelessWidget {
 
   Widget _infoItem(String label, String value, IconData icon) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
       decoration: BoxDecoration(
-        color: AppTheme.cardColor,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppTheme.primaryColor.withOpacity(0.05)),
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 10, offset: const Offset(0, 4)),
+        ],
       ),
-      width: 80,
+      width: 82,
       child: Column(
         children: [
-          Icon(icon, color: AppTheme.accentColor, size: 20),
-          const SizedBox(height: 8),
+          Icon(icon, color: AppTheme.accentColor, size: 22),
+          const SizedBox(height: 10),
           Text(
             value,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
+            style: const TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold, fontSize: 14),
           ),
           const SizedBox(height: 4),
           Text(
@@ -198,12 +203,12 @@ class BookDetailsScreen extends StatelessWidget {
       children: [
         const Text(
           "Synopsis",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 14),
         Text(
           book.description,
-          style: const TextStyle(color: AppTheme.textSecondaryColor, fontSize: 15, height: 1.6),
+          style: const TextStyle(color: AppTheme.textSecondaryColor, fontSize: 16, height: 1.7),
         ),
       ],
     );
@@ -214,13 +219,13 @@ class BookDetailsScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Metadata",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          "Information",
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 20),
         _metaRow("ISBN", book.isbn ?? "N/A"),
         _metaRow("Publisher", book.source ?? "Open Library"),
-        _metaRow("Pub. Year", book.publicationYear.toString()),
+        _metaRow("Published Year", book.publicationYear.toString()),
         if (book.type == BookType.audiobook) _metaRow("Narrator", book.narrator ?? "LibriVox"),
       ],
     );
@@ -228,12 +233,12 @@ class BookDetailsScreen extends StatelessWidget {
 
   Widget _metaRow(String label, String value) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.only(bottom: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label, style: const TextStyle(color: AppTheme.textSecondaryColor, fontSize: 14)),
-          Text(value, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 14)),
+          Text(value, style: const TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.w600, fontSize: 14)),
         ],
       ),
     );
@@ -241,10 +246,10 @@ class BookDetailsScreen extends StatelessWidget {
 
   Widget _buildBottomActions(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: const BoxDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+      decoration: BoxDecoration(
         color: AppTheme.backgroundColor,
-        border: Border(top: BorderSide(color: Colors.white10)),
+        border: Border(top: BorderSide(color: AppTheme.primaryColor.withOpacity(0.05))),
       ),
       child: Row(
         children: [
@@ -259,24 +264,28 @@ class BookDetailsScreen extends StatelessWidget {
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.secondaryColor,
-                padding: const EdgeInsets.symmetric(vertical: 18),
+                backgroundColor: AppTheme.primaryColor,
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                elevation: 10,
+                shadowColor: AppTheme.primaryColor.withOpacity(0.4),
               ),
               child: Text(
                 book.type == BookType.ebook ? "Start Reading" : "Listen Now",
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, letterSpacing: 1),
               ),
             ),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 18),
           Container(
+            height: 60,
+            width: 60,
             decoration: BoxDecoration(
-              color: AppTheme.cardColor,
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.white10),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(color: AppTheme.primaryColor.withOpacity(0.1)),
             ),
             child: IconButton(
-              icon: const Icon(Icons.bookmark_add_outlined, color: Colors.white),
+              icon: const Icon(Icons.bookmark_add_outlined, color: AppTheme.primaryColor),
               onPressed: () {},
             ),
           ),

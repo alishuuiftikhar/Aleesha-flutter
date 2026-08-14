@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     _controller.forward();
 
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 4), () {
       if (mounted) {
         Navigator.pushReplacement(
           context,
@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background Gradient
+          // Elegant texture/gradient
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   center: Alignment.center,
                   radius: 1.5,
                   colors: [
-                    AppTheme.secondaryColor.withOpacity(0.1),
+                    Colors.white,
                     AppTheme.backgroundColor,
                   ],
                 ),
@@ -86,15 +86,15 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(28),
                       decoration: BoxDecoration(
-                        color: AppTheme.secondaryColor.withOpacity(0.1),
+                        color: AppTheme.primaryColor.withOpacity(0.05),
                         shape: BoxShape.circle,
-                        border: Border.all(color: AppTheme.secondaryColor.withOpacity(0.3)),
+                        border: Border.all(color: AppTheme.secondaryColor.withOpacity(0.2)),
                       ),
                       child: const Icon(
                         Icons.menu_book_rounded,
-                        size: 80,
+                        size: 85,
                         color: AppTheme.accentColor,
                       ),
                     ),
@@ -102,10 +102,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     Text(
                       'BookNest',
                       style: GoogleFonts.philosopher(
-                        fontSize: 48,
+                        fontSize: 54,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        letterSpacing: 2,
+                        color: AppTheme.primaryColor,
+                        letterSpacing: 1.5,
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -114,8 +114,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       style: TextStyle(
                         color: AppTheme.textSecondaryColor,
                         fontSize: 16,
-                        letterSpacing: 4,
-                        fontWeight: FontWeight.w300,
+                        letterSpacing: 6,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
@@ -124,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             ),
           ),
           const Positioned(
-            bottom: 60,
+            bottom: 80,
             left: 0,
             right: 0,
             child: Center(

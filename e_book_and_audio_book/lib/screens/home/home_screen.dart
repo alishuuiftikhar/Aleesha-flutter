@@ -26,13 +26,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.backgroundColor,
       body: SafeArea(
         child: Consumer<BookProvider>(
           builder: (context, provider, child) {
             return RefreshIndicator(
               onRefresh: () => provider.initialize(),
-              color: AppTheme.secondaryColor,
+              color: AppTheme.accentColor,
               child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: 20),
                     _buildAudioList(provider.getBooksByType(BookType.audiobook)),
                     const SizedBox(height: 40),
-                    _buildSectionHeader("Categories"),
+                    _buildSectionHeader("Explore Categories"),
                     const SizedBox(height: 20),
                     _buildCategoriesGrid(),
                     const SizedBox(height: 40),
@@ -69,12 +71,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildOfflineBanner() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      color: Colors.redAccent,
-      child: const Text(
-        "You're offline. Showing your saved library.",
-        textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: Colors.redAccent.withOpacity(0.9),
+        borderRadius: BorderRadius.circular(0),
+      ),
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.wifi_off_rounded, color: Colors.white, size: 16),
+          SizedBox(width: 10),
+          Text(
+            "Offline Mode: Showing Saved Library",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+        ],
       ),
     );
   }
@@ -85,14 +97,31 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(Icons.menu_rounded, color: Colors.white, size: 28),
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: AppTheme.cardColor,
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(Icons.notifications_none_rounded, color: Colors.white),
+          const Icon(Icons.notes_rounded, color: AppTheme.primaryColor, size: 30),
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+                  ],
+                ),
+                child: const Icon(Icons.search_rounded, color: AppTheme.primaryColor, size: 22),
+              ),
+              const SizedBox(width: 12),
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: AppTheme.primaryColor.withOpacity(0.05),
+                  shape: BoxShape.circle,
+                  border: Border.all(color: AppTheme.primaryColor.withOpacity(0.1)),
+                ),
+                child: const Icon(Icons.notifications_none_rounded, color: AppTheme.primaryColor, size: 22),
+              ),
+            ],
           ),
         ],
       ),
@@ -107,19 +136,20 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Text(
             "Good Morning 👋",
-            style: GoogleFonts.philosopher(
+            style: TextStyle(
               color: AppTheme.textSecondaryColor,
               fontSize: 18,
+              fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           Text(
             "Discover your next\nfavorite story.",
             style: GoogleFonts.philosopher(
-              fontSize: 32,
+              fontSize: 36,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
-              height: 1.2,
+              color: AppTheme.primaryColor,
+              height: 1.1,
             ),
           ),
         ],
@@ -134,17 +164,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(22),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppTheme.secondaryColor, AppTheme.secondaryColor.withOpacity(0.7)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(24),
+          color: AppTheme.primaryColor,
+          borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: AppTheme.secondaryColor.withOpacity(0.3),
+              color: AppTheme.primaryColor.withOpacity(0.25),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -152,13 +178,16 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Row(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: CachedNetworkImage(
-                imageUrl: book.coverUrl,
-                width: 70,
-                height: 100,
-                fit: BoxFit.cover,
+            Hero(
+              tag: 'continue_${book.id}',
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: CachedNetworkImage(
+                  imageUrl: book.coverUrl,
+                  width: 80,
+                  height: 115,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox(width: 20),
@@ -167,32 +196,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Continue Reading",
-                    style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 12, fontWeight: FontWeight.bold),
+                    "CONTINUE READING",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.5), 
+                      fontSize: 10, 
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5
+                    ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
                   Text(
                     book.title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 16),
                   Row(
                     children: [
                       Expanded(
                         child: LinearProgressIndicator(
                           value: 0.72,
-                          backgroundColor: Colors.white.withOpacity(0.2),
+                          backgroundColor: Colors.white.withOpacity(0.1),
                           valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.accentColor),
                           minHeight: 6,
-                          borderRadius: BorderRadius.circular(3),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 14),
                       const Text(
                         "72%",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13),
                       ),
                     ],
                   ),
@@ -214,14 +248,21 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(
             title,
             style: GoogleFonts.philosopher(
-              fontSize: 22,
+              fontSize: 26,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: AppTheme.primaryColor,
             ),
           ),
-          const Text(
-            "See All",
-            style: TextStyle(color: AppTheme.accentColor, fontWeight: FontWeight.bold),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              color: AppTheme.accentColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Text(
+              "See All",
+              style: TextStyle(color: AppTheme.accentColor, fontWeight: FontWeight.bold, fontSize: 13),
+            ),
           ),
         ],
       ),
@@ -230,13 +271,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildHorizontalList(List<Book> books) {
     if (books.isEmpty) {
-      return const SizedBox(height: 250, child: Center(child: CircularProgressIndicator(color: AppTheme.secondaryColor)));
+      return Container(
+        height: 300,
+        alignment: Alignment.center,
+        child: const CircularProgressIndicator(color: AppTheme.accentColor),
+      );
     }
     return SizedBox(
-      height: 280,
+      height: 310,
       child: ListView.builder(
         padding: const EdgeInsets.only(left: 24),
         scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
         itemCount: books.length,
         itemBuilder: (context, index) => BookCard(book: books[index]),
       ),
@@ -245,37 +291,41 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildAudioList(List<Book> audioBooks) {
     if (audioBooks.isEmpty) {
-      return const SizedBox(height: 120, child: Center(child: Text("Loading audio stories...")));
+      return const SizedBox(height: 120, child: Center(child: Text("Fetching audio stories...")));
     }
     return SizedBox(
-      height: 160,
+      height: 180,
       child: ListView.builder(
         padding: const EdgeInsets.only(left: 24),
         scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
         itemCount: audioBooks.length,
         itemBuilder: (context, index) {
           final book = audioBooks[index];
           return Container(
-            width: 300,
-            margin: const EdgeInsets.only(right: 20),
+            width: 320,
+            margin: const EdgeInsets.only(right: 20, bottom: 5),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppTheme.cardColor,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.white.withOpacity(0.05)),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(28),
+              border: Border.all(color: AppTheme.primaryColor.withOpacity(0.04)),
+              boxShadow: [
+                BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 15, offset: const Offset(0, 6)),
+              ],
             ),
             child: Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(18),
                   child: CachedNetworkImage(
                     imageUrl: book.coverUrl,
-                    width: 80,
-                    height: 110,
+                    width: 90,
+                    height: 120,
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 18),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -285,27 +335,42 @@ class _HomeScreenState extends State<HomeScreen> {
                         book.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                        style: const TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold, fontSize: 18),
                       ),
+                      const SizedBox(height: 4),
                       Text(
                         book.author,
-                        style: const TextStyle(color: AppTheme.textSecondaryColor, fontSize: 12),
+                        style: const TextStyle(color: AppTheme.textSecondaryColor, fontSize: 13),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 16),
                       Row(
                         children: [
-                          const Icon(Icons.headphones_rounded, color: AppTheme.accentColor, size: 16),
-                          const SizedBox(width: 4),
+                          Container(
+                            padding: const EdgeInsets.all(6),
+                            decoration: BoxDecoration(
+                              color: AppTheme.accentColor.withOpacity(0.1),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(Icons.headphones_rounded, color: AppTheme.accentColor, size: 16),
+                          ),
+                          const SizedBox(width: 8),
                           Text(
                             book.totalDuration ?? "9h 15m",
-                            style: const TextStyle(color: AppTheme.accentColor, fontSize: 12, fontWeight: FontWeight.bold),
+                            style: const TextStyle(color: AppTheme.accentColor, fontSize: 14, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ],
                   ),
                 ),
-                const Icon(Icons.play_circle_fill_rounded, color: AppTheme.secondaryColor, size: 40),
+                Container(
+                  padding: const EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppTheme.secondaryColor.withOpacity(0.2), width: 2),
+                  ),
+                  child: Icon(Icons.play_circle_fill_rounded, color: AppTheme.secondaryColor, size: 48),
+                ),
               ],
             ),
           );
@@ -333,7 +398,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisCount: 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
-          childAspectRatio: 2.2,
+          childAspectRatio: 2.3,
         ),
         itemCount: categories.length,
         itemBuilder: (context, index) {
@@ -341,17 +406,20 @@ class _HomeScreenState extends State<HomeScreen> {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: AppTheme.cardColor,
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.white.withOpacity(0.05)),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: AppTheme.primaryColor.withOpacity(0.06)),
+              boxShadow: [
+                BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 8, offset: const Offset(0, 3)),
+              ],
             ),
             child: Row(
               children: [
-                Icon(cat['icon'] as IconData, color: AppTheme.secondaryColor, size: 20),
-                const SizedBox(width: 12),
+                Icon(cat['icon'] as IconData, color: AppTheme.secondaryColor, size: 24),
+                const SizedBox(width: 14),
                 Text(
                   cat['name'] as String,
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13),
+                  style: const TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold, fontSize: 14),
                 ),
               ],
             ),
