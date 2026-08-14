@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/widgets.dart';
 import '../database/database_helper.dart';
 import '../models/book_model.dart';
 import '../services/api_service.dart';
@@ -17,7 +18,6 @@ class BookProvider with ChangeNotifier {
   bool _isOffline = false;
   bool get isOffline => _isOffline;
 
-  // Expanded list of 30 iconic books for automatic fetching
   final List<Map<String, dynamic>> _targetBooks = [
     {"title": "Atomic Habits", "category": "Self Development"},
     {"title": "The Alchemist", "category": "Fiction"},
@@ -55,21 +55,23 @@ class BookProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    // Check connectivity
+    if (kIsWeb) {
+      _isOffline = false;
+      await _fetchInitialBooks();
+      return;
+    }
+
     var connectivityResult = await Connectivity().checkConnectivity();
     _isOffline = connectivityResult == ConnectivityResult.none;
 
-    // Load existing books immediately
     _books = await _dbHelper.getAllBooks();
     
     if (_books.isEmpty && !_isOffline) {
-      // First run: fetch all 30 books
       await _fetchInitialBooks();
     } else {
       _isLoading = false;
       notifyListeners();
       
-      // Refresh logic in background if online to ensure latest covers
       if (!_isOffline) {
         _refreshBooksInBackground();
       }
@@ -77,9 +79,9 @@ class BookProvider with ChangeNotifier {
   }
 
   Future<void> _fetchInitialBooks() async {
+    List<Book> webBooks = [];
     for (int i = 0; i < _targetBooks.length; i++) {
       final target = _targetBooks[i];
-      // Distribute types: every 3rd book is an audiobook
       BookType type = (i % 3 == 0) ? BookType.audiobook : BookType.ebook;
       
       try {
@@ -90,10 +92,15 @@ class BookProvider with ChangeNotifier {
         );
         
         if (book != null) {
-          await _dbHelper.insertOrUpdateBook(book);
-          // UI update every 3 books for smooth feeling
-          if (i % 3 == 0) {
-            _books = await _dbHelper.getAllBooks();
+          if (!kIsWeb) {
+            await _dbHelper.insertOrUpdateBook(book);
+            if (i % 3 == 0) {
+              _books = await _dbHelper.getAllBooks();
+              notifyListeners();
+            }
+          } else {
+            webBooks.add(book);
+            _books = List.from(webBooks);
             notifyListeners();
           }
         }
@@ -101,13 +108,16 @@ class BookProvider with ChangeNotifier {
         debugPrint("Error fetching book ${target['title']}: $e");
       }
     }
-    _books = await _dbHelper.getAllBooks();
+    
+    if (!kIsWeb) {
+      _books = await _dbHelper.getAllBooks();
+    }
     _isLoading = false;
     notifyListeners();
   }
 
   Future<void> _refreshBooksInBackground() async {
-    // Silently update metadata without showing loader
+    if (kIsWeb) return;
     for (var target in _targetBooks) {
        try {
          Book? book = await _apiService.fetchBookByTitle(target['title'], category: target['category']);
@@ -115,7 +125,7 @@ class BookProvider with ChangeNotifier {
            await _dbHelper.insertOrUpdateBook(book);
          }
        } catch (e) {
-         debugPrint("Background sync failed for ${target['title']}");
+         debugPrint("Background refresh error: $e");
        }
     }
     _books = await _dbHelper.getAllBooks();
@@ -123,20 +133,24 @@ class BookProvider with ChangeNotifier {
   }
 
   Future<void> fetchBooks() async {
+    if (kIsWeb) return;
     _books = await _dbHelper.getAllBooks();
     notifyListeners();
   }
 
   Future<void> toggleFavorite(int bookId) async {
+    if (kIsWeb) return;
     await _dbHelper.toggleFavorite(bookId);
     notifyListeners();
   }
 
   Future<bool> isFavorite(int bookId) async {
+    if (kIsWeb) return false;
     return await _dbHelper.isFavorite(bookId);
   }
   
   Future<List<Book>> getFavorites() async {
+    if (kIsWeb) return [];
     return await _dbHelper.getFavorites();
   }
 
@@ -153,13 +167,15 @@ class BookProvider with ChangeNotifier {
       return _books;
     }
     
-    // 1. Search locally first
+    if (kIsWeb) {
+       return await _apiService.searchOnline(query);
+    }
+    
     final localResults = _books.where((b) => 
       b.title.toLowerCase().contains(query.toLowerCase()) || 
       b.author.toLowerCase().contains(query.toLowerCase())
     ).toList();
 
-    // 2. If no local results and online, fetch from API
     if (localResults.isEmpty && !_isOffline) {
       return await _apiService.searchOnline(query);
     }
@@ -168,6 +184,7 @@ class BookProvider with ChangeNotifier {
   }
 
   Future<void> saveBook(Book book) async {
+    if (kIsWeb) return;
     await _dbHelper.insertOrUpdateBook(book);
     await fetchBooks();
   }

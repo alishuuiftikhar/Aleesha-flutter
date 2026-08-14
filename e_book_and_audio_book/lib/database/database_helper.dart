@@ -1,16 +1,19 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:flutter/foundation.dart';
 import '../models/book_model.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   static Database? _database;
+  static bool _isWeb = kIsWeb;
 
   factory DatabaseHelper() => _instance;
 
   DatabaseHelper._internal();
 
   Future<Database> get database async {
+    if (_isWeb) throw Exception("SQLite not supported on Web");
     if (_database != null) return _database!;
     _database = await _initDatabase();
     return _database!;

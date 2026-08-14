@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (provider.isOffline) _buildOfflineBanner(),
+                    if (provider.isOffline && !kIsWeb) _buildOfflineBanner(),
                     _buildTopBar(),
                     const SizedBox(height: 24),
                     _buildWelcomeSection(),
@@ -75,7 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         color: Colors.redAccent.withOpacity(0.9),
-        borderRadius: BorderRadius.circular(0),
       ),
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -182,12 +182,19 @@ class _HomeScreenState extends State<HomeScreen> {
               tag: 'continue_${book.id}',
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: CachedNetworkImage(
-                  imageUrl: book.coverUrl,
-                  width: 80,
-                  height: 115,
-                  fit: BoxFit.cover,
-                ),
+                child: kIsWeb 
+                  ? Image.network(
+                      book.coverUrl,
+                      width: 80,
+                      height: 115,
+                      fit: BoxFit.cover,
+                    )
+                  : CachedNetworkImage(
+                      imageUrl: book.coverUrl,
+                      width: 80,
+                      height: 115,
+                      fit: BoxFit.cover,
+                    ),
               ),
             ),
             const SizedBox(width: 20),
@@ -318,12 +325,19 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(18),
-                  child: CachedNetworkImage(
-                    imageUrl: book.coverUrl,
-                    width: 90,
-                    height: 120,
-                    fit: BoxFit.cover,
-                  ),
+                  child: kIsWeb 
+                    ? Image.network(
+                        book.coverUrl,
+                        width: 90,
+                        height: 120,
+                        fit: BoxFit.cover,
+                      )
+                    : CachedNetworkImage(
+                        imageUrl: book.coverUrl,
+                        width: 90,
+                        height: 120,
+                        fit: BoxFit.cover,
+                      ),
                 ),
                 const SizedBox(width: 18),
                 Expanded(

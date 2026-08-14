@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,10 +56,15 @@ class BookDetailsScreen extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            CachedNetworkImage(
-              imageUrl: book.coverUrl,
-              fit: BoxFit.cover,
-            ),
+            kIsWeb 
+              ? Image.network(
+                  book.coverUrl,
+                  fit: BoxFit.cover,
+                )
+              : CachedNetworkImage(
+                  imageUrl: book.coverUrl,
+                  fit: BoxFit.cover,
+                ),
             // Gradient Overlay
             Container(
               decoration: BoxDecoration(

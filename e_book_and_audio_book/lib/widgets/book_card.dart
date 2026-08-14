@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:provider/provider.dart';
@@ -98,22 +99,30 @@ class BookCard extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(22),
-        child: CachedNetworkImage(
-          imageUrl: book.coverUrl,
-          height: width * 1.45,
-          width: width,
-          fit: BoxFit.cover,
-          placeholder: (context, url) => Shimmer.fromColors(
-            baseColor: Colors.grey[200]!,
-            highlightColor: Colors.white,
-            child: Container(
+        child: kIsWeb 
+          ? Image.network(
+              book.coverUrl,
               height: width * 1.45,
               width: width,
-              color: Colors.white,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => _buildErrorWidget(),
+            )
+          : CachedNetworkImage(
+              imageUrl: book.coverUrl,
+              height: width * 1.45,
+              width: width,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => Shimmer.fromColors(
+                baseColor: Colors.grey[200]!,
+                highlightColor: Colors.white,
+                child: Container(
+                  height: width * 1.45,
+                  width: width,
+                  color: Colors.white,
+                ),
+              ),
+              errorWidget: (context, url, error) => _buildErrorWidget(),
             ),
-          ),
-          errorWidget: (context, url, error) => _buildErrorWidget(),
-        ),
       ),
     );
   }
