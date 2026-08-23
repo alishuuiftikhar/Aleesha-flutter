@@ -1,0 +1,113 @@
+[
+  {
+    "id": "cat_1",
+    "name": "General Knowledge",
+    "icon": "public",
+    "questions": [
+      {
+        "id": "q1",
+        "text": "What is the capital of France?",
+        "options": ["London", "Berlin", "Paris", "Madrid"],
+        "correctIndex": 2
+      },
+      {
+        "id": "q2",
+        "text": "Which planet is known as the Red Planet?",
+        "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+        "correctIndex": 1
+      },
+      {
+        "id": "q3",
+        "text": "What is the largest ocean on Earth?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correctIndex": 3
+      },
+      {
+        "id": "q4",
+        "text": "Who wrote 'Romeo and Juliet'?",
+        "options": ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
+        "correctIndex": 1
+      },
+      {
+        "id": "q5",
+        "text": "What is the smallest country in the world?",
+        "options": ["Monaco", "Malta", "Vatican City", "San Marino"],
+        "correctIndex": 2
+      }
+    ]
+  },
+  {
+    "id": "cat_2",
+    "name": "Science",
+    "icon": "science",
+    "questions": [
+      {
+        "id": "s1",
+        "text": "What is the chemical symbol for Gold?",
+        "options": ["Ag", "Au", "Fe", "Cu"],
+        "correctIndex": 1
+      },
+      {
+        "id": "s2",
+        "text": "Which gas do plants absorb from the atmosphere?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correctIndex": 2
+      },
+      {
+        "id": "s3",
+        "text": "What is the powerhouse of the cell?",
+        "options": ["Nucleus", "Ribosome", "Mitochondria", "Endoplasmic Reticulum"],
+        "correctIndex": 2
+      },
+      {
+        "id": "s4",
+        "text": "What is the boiling point of water at sea level?",
+        "options": ["90°C", "100°C", "110°C", "120°C"],
+        "correctIndex": 1
+      },
+      {
+        "id": "s5",
+        "text": "Which planet has the most moons?",
+        "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "id": "cat_3",
+    "name": "Technology",
+    "icon": "computer",
+    "questions": [
+      {
+        "id": "t1",
+        "text": "Who is the co-founder of Microsoft?",
+        "options": ["Steve Jobs", "Elon Musk", "Bill Gates", "Mark Zuckerberg"],
+        "correctIndex": 2
+      },
+      {
+        "id": "t2",
+        "text": "What does RAM stand for?",
+        "options": ["Random Access Memory", "Read Access Memory", "Run Access Memory", "Real Access Memory"],
+        "correctIndex": 0
+      },
+      {
+        "id": "t3",
+        "text": "Which programming language is used for Flutter?",
+        "options": ["Java", "Kotlin", "Dart", "Swift"],
+        "correctIndex": 2
+      },
+      {
+        "id": "t4",
+        "text": "What is the main function of a router?",
+        "options": ["Storage", "Data transmission", "Cooling", "Display"],
+        "correctIndex": 1
+      },
+      {
+        "id": "t5",
+        "text": "Who developed the first programmable computer?",
+        "options": ["Alan Turing", "Charles Babbage", "Ada Lovelace", "John von Neumann"],
+        "correctIndex": 1
+      }
+    ]
+  }
+]

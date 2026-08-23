@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "name": "Bali",
+    "location": "Indonesia",
+    "description": "Bali is a province of Indonesia and the westernmost of the Lesser Sunda Islands. East of Java and west of Lombok, the province includes the island of Bali and a few smaller neighbouring islands, notably Nusa Penida, Nusa Lembongan, and Nusa Ceningan.",
+    "category": "Beach",
+    "price": 1200,
+    "rating": 4.8,
+    "imageUrl": "https://images.unsplash.com/photo-1537996194471-e657df975ab4",
+    "hotels": [
+      {"name": "Ayana Resort", "rating": 5.0, "price": 450},
+      {"name": "Mulua Bali", "rating": 4.7, "price": 280}
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Swiss Alps",
+    "location": "Switzerland",
+    "description": "The Alpine region of Switzerland, conventionally referred to as the Swiss Alps, represents a major natural feature of the country.",
+    "category": "Mountain",
+    "price": 2500,
+    "rating": 4.9,
+    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+    "hotels": [
+      {"name": "The Chedi Andermatt", "rating": 5.0, "price": 800},
+      {"name": "Badrutt's Palace", "rating": 4.9, "price": 700}
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Santorini",
+    "location": "Greece",
+    "description": "Santorini is one of the Cyclades islands in the Aegean Sea. It was devastated by a volcanic eruption in the 16th century BC, forever shaping its rugged landscape.",
+    "category": "Island",
+    "price": 1800,
+    "rating": 4.7,
+    "imageUrl": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff",
+    "hotels": [
+      {"name": "Canaves Oia", "rating": 4.9, "price": 600},
+      {"name": "Grace Hotel", "rating": 4.8, "price": 550}
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Kyoto",
+    "location": "Japan",
+    "description": "Kyoto, once the capital of Japan, is a city on the island of Honshu. It's famous for its numerous classical Buddhist temples, as well as gardens, imperial palaces, Shinto shrines and traditional wooden houses.",
+    "category": "Cultural",
+    "price": 2000,
+    "rating": 4.6,
+    "imageUrl": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e",
+    "hotels": [
+      {"name": "Ritz-Carlton Kyoto", "rating": 5.0, "price": 900},
+      {"name": "Hoshinoya Kyoto", "rating": 4.8, "price": 750}
+    ]
+  }
+]

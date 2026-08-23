@@ -1,4 +1,4 @@
-# e_book_and_audio_book
+# travel_booking_flutter_app
 
 A new Flutter project.
 
@@ -15,18 +15,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# e_book_and_audio_book
-
-## Screenshots
-
-![Home Screen](Screenshots/ss_1.png)
-![Home Screen](Screenshots/ss_2.png)
-![Home Screen](Screenshots/ss_3.png)
-![Home Screen](Screenshots/ss_4.png)
-![Home Screen](Screenshots/ss_5.png)
-![Home Screen](Screenshots/ss_6.png)
-![Home Screen](Screenshots/ss_7.png)
-![Home Screen](Screenshots/ss_8.png)
-![Home Screen](Screenshots/ss_9.png)
-![Home Screen](Screenshots/ss_10.png)
-![Home Screen](Screenshots/ss_11.png)
