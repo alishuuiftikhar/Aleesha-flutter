@@ -15,3 +15,18 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+# expense_tracker_app
+
+## Screenshots
+
+![Home Screen](Screenshots/alisha_1.png)
+![Home Screen](Screenshots/alisha_2.png)
+![Home Screen](Screenshots/alisha_3.png)
+![Home Screen](Screenshots/alisha_4.png)
+![Home Screen](Screenshots/alisha_5.png)
+![Home Screen](Screenshots/alisha_6.png)
+![Home Screen](Screenshots/alisha_7.png)
+![Home Screen](Screenshots/alisha_8.png)
+![Home Screen](Screenshots/alisha_9.png)
+![Home Screen](Screenshots/alisha_10.png)
+
