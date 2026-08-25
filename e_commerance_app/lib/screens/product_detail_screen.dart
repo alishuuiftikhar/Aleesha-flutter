@@ -130,6 +130,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>{
                     quantity:quantity,
                   );
 
+                  if (!mounted) return;
+
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content:Text("Added to Cart"),
