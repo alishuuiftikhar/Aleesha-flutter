@@ -9,36 +9,15 @@ import '../screens/category_list_screen.dart';
 import '../screens/order_list_screen.dart';
 import '../screens/admin_profile_screen.dart';
 
-
-class AppRoutes{
-
-  static Map<String,WidgetBuilder> routes={
-
-
-    '/login':(context)=>const AdminLoginScreen(),
-
-
-    '/home':(context)=>const AdminHomeScreen(),
-
-
-    '/addProduct':(context)=>const AddProductScreen(),
-
-
-    '/products':(context)=>const ProductListScreen(),
-
-
-    '/addCategory':(context)=>const AddCategoryScreen(),
-
-
-    '/categories':(context)=>const CategoryListScreen(),
-
-
-    '/orders':(context)=>const OrderListScreen(),
-
-
-    '/profile':(context)=>const AdminProfileScreen(),
-
-
+class AppRoutes {
+  static Map<String, WidgetBuilder> routes = {
+    '/login': (context) => const AdminLoginScreen(),
+    '/home': (context) => const AdminHomeScreen(),
+    '/addProduct': (context) => const AddProductScreen(),
+    '/products': (context) => const ProductListScreen(),
+    '/addCategory': (context) => const AddCategoryScreen(),
+    '/categories': (context) => const CategoryListScreen(),
+    '/orders': (context) => const OrderListScreen(),
+    '/profile': (context) => const AdminProfileScreen(),
   };
-
 }

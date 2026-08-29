@@ -1,6 +1,6 @@
-import 'dart:io';
-import 'package:path/path.dart';
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 
 class StorageService{
 
@@ -9,14 +9,20 @@ class StorageService{
   static final SupabaseClient _supabase=
       Supabase.instance.client;
 
-  static Future<String> uploadImage(File file) async{
+  static Future<String> uploadImage(XFile file) async{
 
     final fileName=
-        "${DateTime.now().millisecondsSinceEpoch}_${basename(file.path)}";
+        "${DateTime.now().millisecondsSinceEpoch}_${file.name}";
+
+    final bytes = await file.readAsBytes();
 
     await _supabase.storage
         .from('products')
-        .upload(fileName,file);
+        .uploadBinary(
+          fileName,
+          bytes,
+          fileOptions: const FileOptions(upsert: true),
+        );
 
     return _supabase.storage
         .from('products')

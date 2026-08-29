@@ -1,0 +1,42 @@
+{
+  "workouts": [
+    {
+      "id": "w1",
+      "title": "Beginner Full Body",
+      "description": "A perfect start for your fitness journey. Covers all major muscle groups.",
+      "image": "https://images.unsplash.com/photo-1517838276558-c3d98fb35e16?w=800&q=80",
+      "level": "Beginner",
+      "category": "Full Body",
+      "exercises": [
+        { "exerciseId": "1", "sets": 3, "reps": 10, "restTime": 60 },
+        { "exerciseId": "2", "sets": 3, "reps": 15, "restTime": 60 },
+        { "exerciseId": "3", "sets": 3, "reps": 1, "restTime": 30 }
+      ]
+    },
+    {
+      "id": "w2",
+      "title": "Core Blast",
+      "description": "Strengthen your midsection with this focused core routine.",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+      "level": "Intermediate",
+      "category": "Core",
+      "exercises": [
+        { "exerciseId": "3", "sets": 4, "reps": 1, "restTime": 30 },
+        { "exerciseId": "4", "sets": 3, "reps": 50, "restTime": 30 }
+      ]
+    },
+    {
+      "id": "w3",
+      "title": "Leg Day Power",
+      "description": "Intense lower body workout to build strength and endurance.",
+      "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
+      "level": "Advanced",
+      "category": "Lower Body",
+      "exercises": [
+        { "exerciseId": "2", "sets": 5, "reps": 20, "restTime": 60 },
+        { "exerciseId": "5", "sets": 4, "reps": 15, "restTime": 45 },
+        { "exerciseId": "6", "sets": 3, "reps": 12, "restTime": 90 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "photographer": {
+    "name": "Aleesha Miller",
+    "bio": "Capturing the essence of life through a luxury editorial lens. Specializing in timeless portraits and breathtaking landscapes.",
+    "profile_image": "https://images.unsplash.com/photo-1586902197503-e710262d24ca?q=80&w=1000&auto=format&fit=crop",
+    "contact": {
+      "email": "hello@aleeshamiller.com",
+      "phone": "+1 (555) 123-4567",
+      "instagram": "@aleeshamiller_photo"
+    }
+  },
+  "categories": [
+    "Portraits",
+    "Weddings",
+    "Nature",
+    "Travel",
+    "Events"
+  ],
+  "portfolio": [
+    {
+      "id": "1",
+      "title": "Parisian Morning",
+      "category": "Travel",
+      "image_url": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop",
+      "description": "The Eiffel Tower emerging through the morning mist.",
+      "is_featured": true
+    },
+    {
+      "id": "2",
+      "title": "Mountain Majesty",
+      "category": "Nature",
+      "image_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
+      "description": "The raw beauty of the Alps during sunrise.",
+      "is_featured": true
+    },
+    {
+      "id": "3",
+      "title": "Venetian Canals",
+      "category": "Travel",
+      "image_url": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1000&auto=format&fit=crop",
+      "description": "Quiet moments along the historic waterways of Venice.",
+      "is_featured": false
+    },
+    {
+      "id": "4",
+      "title": "Eternal Vows",
+      "category": "Weddings",
+      "image_url": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop",
+      "description": "A celebration of love in a historic manor.",
+      "is_featured": true
+    },
+    {
+      "id": "5",
+      "title": "Forest Light",
+      "category": "Nature",
+      "image_url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop",
+      "description": "Sunlight filtering through ancient redwoods.",
+      "is_featured": false
+    },
+    {
+      "id": "6",
+      "title": "Editorial Silhouette",
+      "category": "Portraits",
+      "image_url": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=1000&auto=format&fit=crop",
+      "description": "High fashion portrait with dramatic lighting.",
+      "is_featured": true
+    },
+    {
+      "id": "7",
+      "title": "Nordic Winter",
+      "category": "Nature",
+      "image_url": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+      "description": "A frozen landscape in the heart of Norway.",
+      "is_featured": false
+    },
+    {
+      "id": "8",
+      "title": "Golden Hour Glimpse",
+      "category": "Portraits",
+      "image_url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop",
+      "description": "Capturing character in the soft evening light.",
+      "is_featured": false
+    },
+    {
+      "id": "9",
+      "title": "Wedding Details",
+      "category": "Weddings",
+      "image_url": "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+      "description": "The intricate beauty of wedding preparations.",
+      "is_featured": false
+    },
+    {
+      "id": "10",
+      "title": "Festival Pulse",
+      "category": "Events",
+      "image_url": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000&auto=format&fit=crop",
+      "description": "The energy and light of a live celebration.",
+      "is_featured": true
+    },
+    {
+      "id": "11",
+      "title": "Lakeside Serenity",
+      "category": "Nature",
+      "image_url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1000&auto=format&fit=crop",
+      "description": "Reflections on a calm mountain lake.",
+      "is_featured": false
+    }
+  ],
+  "services": [
+    {
+      "title": "Portrait Sessions",
+      "description": "Individual, couple, or family portraits in studio or on location.",
+      "starting_price": "$250"
+    },
+    {
+      "title": "Wedding Photography",
+      "description": "Full day coverage with a second shooter and luxury album.",
+      "starting_price": "$2,500"
+    },
+    {
+      "title": "Commercial & Editorial",
+      "description": "High-end imagery for brands and publications.",
+      "starting_price": "Custom Quote"
+    }
+  ],
+  "packages": [
+    {
+      "name": "The Essential",
+      "price": "$500",
+      "features": ["2 Hours Session", "20 Edited Images", "Online Gallery", "Personal License"]
+    },
+    {
+      "name": "The Editorial",
+      "price": "$1,200",
+      "features": ["4 Hours Session", "50 Edited Images", "2 Fine Art Prints", "Commercial License"]
+    },
+    {
+      "name": "The Heirloom",
+      "price": "$3,500",
+      "features": ["Full Day Coverage", "All Edited Images", "Luxury Photo Book", "USB Keepsake"]
+    }
+  ]
+}

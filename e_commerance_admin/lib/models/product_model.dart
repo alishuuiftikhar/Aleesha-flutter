@@ -4,6 +4,7 @@ class ProductModel{
   final String name;
   final double price;
   final String description;
+  final String imageUrl;
   final int categoryId;
 
   ProductModel({
@@ -11,6 +12,7 @@ class ProductModel{
     required this.name,
     required this.price,
     required this.description,
+    required this.imageUrl,
     required this.categoryId,
   });
 
@@ -26,6 +28,8 @@ class ProductModel{
       price:(json['price'] as num?)?.toDouble()??0,
 
       description:json['description']??'',
+
+      imageUrl:json['image_url']??'',
 
       categoryId:json['category_id']??0,
 
@@ -44,6 +48,8 @@ class ProductModel{
       'price':price,
 
       'description':description,
+
+      'image_url':imageUrl,
 
       'category_id':categoryId,
 

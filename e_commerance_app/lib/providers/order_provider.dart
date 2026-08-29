@@ -59,24 +59,26 @@ class OrderProvider extends ChangeNotifier{
 
 
   Future<void> createOrder({
-
     required String userId,
-
     required double totalAmount,
-
     required String status,
-
+    required String fullName,
+    required String phone,
+    required String address,
+    required String paymentMethod,
+    required List<Map<String, dynamic>> items,
   }) async{
 
 
     await OrderService.createOrder(
-
       userId:userId,
-
       totalAmount:totalAmount,
-
       status:status,
-
+      fullName: fullName,
+      phone: phone,
+      address: address,
+      paymentMethod: paymentMethod,
+      items: items,
     );
 
 

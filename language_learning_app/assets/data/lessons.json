@@ -1,0 +1,18 @@
+[
+  {
+    "id": "l1",
+    "languageId": "es",
+    "title": "Basics 1",
+    "description": "Learn common greetings and basic introductions.",
+    "level": "Beginner",
+    "order": 1
+  },
+  {
+    "id": "l2",
+    "languageId": "es",
+    "title": "Family",
+    "description": "Talking about family members.",
+    "level": "Beginner",
+    "order": 2
+  }
+]

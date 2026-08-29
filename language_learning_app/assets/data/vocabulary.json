@@ -1,0 +1,22 @@
+[
+  {
+    "id": "v1",
+    "lessonId": "l1",
+    "word": "Hola",
+    "translation": "Hello",
+    "pronunciation": "o-la",
+    "example": "¡Hola! ¿Cómo estás?",
+    "exampleTranslation": "Hello! How are you?",
+    "isFavorite": false
+  },
+  {
+    "id": "v2",
+    "lessonId": "l1",
+    "word": "Gracias",
+    "translation": "Thank you",
+    "pronunciation": "gra-syas",
+    "example": "Muchas gracias por tu ayuda.",
+    "exampleTranslation": "Thank you very much for your help.",
+    "isFavorite": false
+  }
+]

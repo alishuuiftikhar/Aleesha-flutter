@@ -1,0 +1,18 @@
+[
+  {
+    "id": "q1",
+    "lessonId": "l1",
+    "type": "multiple_choice",
+    "question": "How do you say 'Hello' in Spanish?",
+    "options": ["Hola", "Adiós", "Gracias", "Por favor"],
+    "correctAnswer": "Hola"
+  },
+  {
+    "id": "q2",
+    "lessonId": "l1",
+    "type": "multiple_choice",
+    "question": "What does 'Gracias' mean?",
+    "options": ["Please", "Hello", "Thank you", "Sorry"],
+    "correctAnswer": "Thank you"
+  }
+]

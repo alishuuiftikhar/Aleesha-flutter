@@ -1,0 +1,20 @@
+[
+  {
+    "id": "l1",
+    "title": "Introduction to Driving",
+    "content": "Driving is a skill that requires practice and knowledge of the rules. Start by understanding your vehicle's controls: steering wheel, pedals (accelerator, brake, clutch), and mirrors.",
+    "category": "Basics"
+  },
+  {
+    "id": "l2",
+    "title": "Road Positioning",
+    "content": "Maintaining proper road position is crucial for safety. Always drive in the center of your lane and keep a safe distance from the vehicle in front.",
+    "category": "Techniques"
+  },
+  {
+    "id": "l3",
+    "title": "Parking Techniques",
+    "content": "Learn how to parallel park and reverse park safely. Use your mirrors and look over your shoulder to check for obstacles.",
+    "category": "Skills"
+  }
+]

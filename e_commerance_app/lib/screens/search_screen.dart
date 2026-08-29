@@ -157,6 +157,8 @@ class _SearchScreenState extends State<SearchScreen>{
 
                     name:product.name,
 
+                    imageUrl:product.imageUrl,
+
                     price:product.price,
 
 

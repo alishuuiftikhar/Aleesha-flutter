@@ -26,6 +26,7 @@ class ProductProvider extends ChangeNotifier{
     required String name,
     required double price,
     required String description,
+    required String imageUrl,
     required int categoryId,
 
   }) async{
@@ -35,6 +36,7 @@ class ProductProvider extends ChangeNotifier{
       name:name,
       price:price,
       description:description,
+      imageUrl:imageUrl,
       categoryId:categoryId,
 
     );

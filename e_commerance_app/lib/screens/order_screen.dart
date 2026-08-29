@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../theme/app_colors.dart';
 import '../widgets/loading_widget.dart';
 import '../services/order_service.dart';
+import '../providers/auth_provider.dart';
 
 class OrdersScreen extends StatefulWidget {
   const OrdersScreen({super.key});
@@ -19,14 +21,24 @@ class _OrdersScreenState extends State<OrdersScreen>{
   @override
   void initState(){
     super.initState();
-    loadOrders();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      loadOrders();
+    });
   }
 
 
   Future<void> loadOrders() async{
 
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final String? userId = authProvider.user?.id;
+
+    if (userId == null) {
+      setState(() => loading = false);
+      return;
+    }
+
     final data = await OrderService.getOrders(
-      "current_user_id",
+      userId,
     );
 
 

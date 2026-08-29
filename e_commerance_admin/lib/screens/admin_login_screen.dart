@@ -1,316 +1,117 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 import 'admin_home_screen.dart';
 
-
-class AdminLoginScreen extends StatefulWidget{
-
+class AdminLoginScreen extends StatefulWidget {
   const AdminLoginScreen({super.key});
 
   @override
-  State<AdminLoginScreen> createState()=>_AdminLoginScreenState();
-
+  State<AdminLoginScreen> createState() => _AdminLoginScreenState();
 }
 
+class _AdminLoginScreenState extends State<AdminLoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  bool loading = false;
 
-
-class _AdminLoginScreenState extends State<AdminLoginScreen>{
-
-
-  final emailController =
-  TextEditingController();
-
-
-  final passwordController =
-  TextEditingController();
-
-
-  bool loading=false;
-
-
-
-  Future<void> login() async{
-
-
-    if(emailController.text.trim().isEmpty ||
-        passwordController.text.trim().isEmpty){
-
+  Future<void> login() async {
+    if (emailController.text.trim().isEmpty || passwordController.text.trim().isEmpty) {
       return;
-
     }
 
+    setState(() => loading = true);
 
-    setState(()=>loading=true);
-
-
-
-    try{
-
-
-      final response =
-      await Supabase.instance.client.auth
-          .signInWithPassword(
-
-        email:
-        emailController.text.trim(),
-
-        password:
-        passwordController.text.trim(),
-
+    try {
+      final response = await Supabase.instance.client.auth.signInWithPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
 
+      final user = response.user;
 
-
-      final user =
-          response.user;
-
-
-
-      if(user==null){
-
+      if (user == null) {
         throw Exception("Login Failed");
-
       }
 
+      final role = user.userMetadata?['role'];
 
-
-      final role =
-      user.userMetadata?['role'];
-
-
-
-      if(role=="admin"){
-
-
-
-        if(!mounted)return;
-
-
+      if (role == "admin") {
+        if (!mounted) return;
 
         Navigator.pushReplacement(
-
           context,
-
           MaterialPageRoute(
-
-            builder:(_)=>
-            const AdminHomeScreen(),
-
+            builder: (_) => const AdminHomeScreen(),
           ),
-
         );
-
-
-
-      }else{
-
-
-
+      } else {
         await Supabase.instance.client.auth.signOut();
-
-
-
-        ScaffoldMessenger.of(context)
-            .showSnackBar(
-
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-
-            content:
-            Text(
-              "You are not an Admin",
-            ),
-
+            content: Text("You are not an Admin"),
           ),
-
         );
-
       }
-
-
-
-    }catch(e){
-
-
-
-      ScaffoldMessenger.of(context)
-          .showSnackBar(
-
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-
-          content:
-          Text(
-            e.toString(),
-          ),
-
+          content: Text(e.toString()),
         ),
-
       );
-
     }
 
-
-
-    setState(()=>loading=false);
-
-
+    setState(() => loading = false);
   }
 
-
-
-
-
   @override
-  void dispose(){
-
+  void dispose() {
     emailController.dispose();
-
     passwordController.dispose();
-
     super.dispose();
-
   }
-
-
-
-
-
-
 
   @override
-  Widget build(BuildContext context){
-
-
+  Widget build(BuildContext context) {
     return Scaffold(
-
-
-      appBar:
-      AppBar(
-
-        title:
-        const Text(
-          "Admin Login",
-        ),
-
+      appBar: AppBar(
+        title: const Text("Admin Login"),
       ),
-
-
-
-      body:
-      Padding(
-
-        padding:
-        const EdgeInsets.all(20),
-
-
-        child:
-        Column(
-
-          children:[
-
-
-
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
             TextField(
-
-              controller:
-              emailController,
-
-              decoration:
-              const InputDecoration(
-
-                labelText:
-                "Email",
-
+              controller: emailController,
+              decoration: const InputDecoration(
+                labelText: "Email",
               ),
-
             ),
-
-
-
-
-            const SizedBox(height:15),
-
-
-
-
+            const SizedBox(height: 15),
             TextField(
-
-              controller:
-              passwordController,
-
-              obscureText:true,
-
-              decoration:
-              const InputDecoration(
-
-                labelText:
-                "Password",
-
+              controller: passwordController,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: "Password",
               ),
-
             ),
-
-
-
-
-            const SizedBox(height:25),
-
-
-
-
+            const SizedBox(height: 25),
             SizedBox(
-
-              width:
-              double.infinity,
-
-
-              height:
-              55,
-
-
-
-              child:
-              ElevatedButton(
-
-
-                onPressed:
-                loading?null:login,
-
-
-
-                child:
-
-
-                loading
-
-                    ?const CircularProgressIndicator(
-                  color:Colors.white,
-                )
-
-
-                    :const Text(
-                  "Login",
-                ),
-
-
-
+              width: double.infinity,
+              height: 55,
+              child: ElevatedButton(
+                onPressed: loading ? null : login,
+                child: loading
+                    ? const CircularProgressIndicator(
+                        color: Colors.white,
+                      )
+                    : const Text("Login"),
               ),
-
             ),
-
-
-
           ],
-
         ),
-
       ),
-
-
     );
-
-
   }
-
-
 }

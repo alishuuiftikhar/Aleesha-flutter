@@ -1,0 +1,7 @@
+[
+  {"id": "en", "name": "English", "flag": "🇺🇸"},
+  {"id": "es", "name": "Spanish", "flag": "🇪🇸"},
+  {"id": "fr", "name": "French", "flag": "🇫🇷"},
+  {"id": "de", "name": "German", "flag": "🇩🇪"},
+  {"id": "jp", "name": "Japanese", "flag": "🇯🇵"}
+]

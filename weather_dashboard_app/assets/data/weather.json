@@ -1,0 +1,132 @@
+[
+  {
+    "city": "London",
+    "country": "UK",
+    "temp": 15,
+    "condition": "Cloudy",
+    "humidity": 70,
+    "windSpeed": 12,
+    "sunrise": "06:15 AM",
+    "sunset": "08:30 PM",
+    "hourly": [
+      {"time": "10:00 AM", "temp": 14, "condition": "Cloudy"},
+      {"time": "11:00 AM", "temp": 15, "condition": "Cloudy"},
+      {"time": "12:00 PM", "temp": 16, "condition": "Sunny"},
+      {"time": "01:00 PM", "temp": 17, "condition": "Sunny"},
+      {"time": "02:00 PM", "temp": 17, "condition": "Cloudy"}
+    ],
+    "daily": [
+      {"day": "Mon", "temp": 15, "condition": "Cloudy"},
+      {"day": "Tue", "temp": 17, "condition": "Sunny"},
+      {"day": "Wed", "temp": 14, "condition": "Rainy"},
+      {"day": "Thu", "temp": 16, "condition": "Cloudy"},
+      {"day": "Fri", "temp": 18, "condition": "Sunny"},
+      {"day": "Sat", "temp": 19, "condition": "Sunny"},
+      {"day": "Sun", "temp": 16, "condition": "Cloudy"}
+    ]
+  },
+  {
+    "city": "New York",
+    "country": "USA",
+    "temp": 22,
+    "condition": "Sunny",
+    "humidity": 55,
+    "windSpeed": 8,
+    "sunrise": "05:45 AM",
+    "sunset": "07:50 PM",
+    "hourly": [
+      {"time": "10:00 AM", "temp": 20, "condition": "Sunny"},
+      {"time": "11:00 AM", "temp": 22, "condition": "Sunny"},
+      {"time": "12:00 PM", "temp": 24, "condition": "Sunny"},
+      {"time": "01:00 PM", "temp": 25, "condition": "Sunny"},
+      {"time": "02:00 PM", "temp": 26, "condition": "Sunny"}
+    ],
+    "daily": [
+      {"day": "Mon", "temp": 22, "condition": "Sunny"},
+      {"day": "Tue", "temp": 24, "condition": "Sunny"},
+      {"day": "Wed", "temp": 25, "condition": "Partly Cloudy"},
+      {"day": "Thu", "temp": 23, "condition": "Cloudy"},
+      {"day": "Fri", "temp": 21, "condition": "Rainy"},
+      {"day": "Sat", "temp": 24, "condition": "Sunny"},
+      {"day": "Sun", "temp": 26, "condition": "Sunny"}
+    ]
+  },
+  {
+    "city": "Tokyo",
+    "country": "Japan",
+    "temp": 28,
+    "condition": "Rainy",
+    "humidity": 85,
+    "windSpeed": 15,
+    "sunrise": "04:30 AM",
+    "sunset": "06:45 PM",
+    "hourly": [
+      {"time": "10:00 AM", "temp": 26, "condition": "Rainy"},
+      {"time": "11:00 AM", "temp": 27, "condition": "Rainy"},
+      {"time": "12:00 PM", "temp": 28, "condition": "Rainy"},
+      {"time": "01:00 PM", "temp": 28, "condition": "Cloudy"},
+      {"time": "02:00 PM", "temp": 27, "condition": "Cloudy"}
+    ],
+    "daily": [
+      {"day": "Mon", "temp": 28, "condition": "Rainy"},
+      {"day": "Tue", "temp": 27, "condition": "Cloudy"},
+      {"day": "Wed", "temp": 26, "condition": "Rainy"},
+      {"day": "Thu", "temp": 29, "condition": "Sunny"},
+      {"day": "Fri", "temp": 30, "condition": "Sunny"},
+      {"day": "Sat", "temp": 28, "condition": "Cloudy"},
+      {"day": "Sun", "temp": 27, "condition": "Rainy"}
+    ]
+  },
+  {
+    "city": "Paris",
+    "country": "France",
+    "temp": 19,
+    "condition": "Partly Cloudy",
+    "humidity": 60,
+    "windSpeed": 10,
+    "sunrise": "06:30 AM",
+    "sunset": "08:15 PM",
+    "hourly": [
+      {"time": "10:00 AM", "temp": 17, "condition": "Cloudy"},
+      {"time": "11:00 AM", "temp": 18, "condition": "Partly Cloudy"},
+      {"time": "12:00 PM", "temp": 19, "condition": "Partly Cloudy"},
+      {"time": "01:00 PM", "temp": 20, "condition": "Sunny"},
+      {"time": "02:00 PM", "temp": 21, "condition": "Sunny"}
+    ],
+    "daily": [
+      {"day": "Mon", "temp": 19, "condition": "Partly Cloudy"},
+      {"day": "Tue", "temp": 21, "condition": "Sunny"},
+      {"day": "Wed", "temp": 20, "condition": "Sunny"},
+      {"day": "Thu", "temp": 18, "condition": "Cloudy"},
+      {"day": "Fri", "temp": 17, "condition": "Rainy"},
+      {"day": "Sat", "temp": 19, "condition": "Cloudy"},
+      {"day": "Sun", "temp": 20, "condition": "Sunny"}
+    ]
+  },
+  {
+    "city": "Sydney",
+    "country": "Australia",
+    "temp": 20,
+    "condition": "Sunny",
+    "humidity": 50,
+    "windSpeed": 14,
+    "sunrise": "06:00 AM",
+    "sunset": "05:30 PM",
+    "hourly": [
+      {"time": "10:00 AM", "temp": 18, "condition": "Sunny"},
+      {"time": "11:00 AM", "temp": 19, "condition": "Sunny"},
+      {"time": "12:00 PM", "temp": 20, "condition": "Sunny"},
+      {"time": "01:00 PM", "temp": 21, "condition": "Sunny"},
+      {"time": "02:00 PM", "temp": 22, "condition": "Sunny"}
+    ],
+    "daily": [
+      {"day": "Mon", "temp": 20, "condition": "Sunny"},
+      {"day": "Tue", "temp": 21, "condition": "Sunny"},
+      {"day": "Wed", "temp": 22, "condition": "Sunny"},
+      {"day": "Thu", "temp": 20, "condition": "Partly Cloudy"},
+      {"day": "Fri", "temp": 19, "condition": "Cloudy"},
+      {"day": "Sat", "temp": 21, "condition": "Sunny"},
+      {"day": "Sun", "temp": 23, "condition": "Sunny"}
+    ]
+  }
+]

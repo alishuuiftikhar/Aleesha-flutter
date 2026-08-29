@@ -1,0 +1,36 @@
+{
+  "featured_looks": [
+    { "id": "e1", "title": "Royal Velvet Abaya", "description": "Navy velvet abaya with silver embroidery, paired with silver khussa and a bold evening makeup look.", "image": "https://images.pexels.com/photos/9849237/pexels-photo-9849237.jpeg?auto=compress&cs=tinysrgb&w=800", "category": "Evening", "items": ["item_1", "item_7", "item_10"], "tips": "Use a deep berry lipstick to match the velvet.", "rating": 5.0, "views": "2.1k" },
+    { "id": "e2", "title": "Golden Hour Satin", "description": "Champagne gold luxury modest gown with matching gold block heels.", "image": "https://images.pexels.com/photos/9849241/pexels-photo-9849241.jpeg?auto=compress&cs=tinysrgb&w=800", "category": "Evening", "items": ["item_2", "item_8"], "tips": "A gold-toned highlighter will enhance the glow.", "rating": 4.9, "views": "1.5k" },
+    { "id": "acc1", "title": "Traditional Charm", "description": "Handcrafted velvet khussa paired with a luxury leather clutch.", "image": "https://images.unsplash.com/photo-1628144070014-9c5952f48e35?auto=format&fit=crop&w=800&q=80", "category": "Accessories", "items": ["item_7", "item_3"], "tips": "Perfect for traditional events.", "rating": 5.0, "views": "3.2k" },
+    { "id": "mu1", "title": "Rose Glow Palette", "description": "A complete makeup collection for a soft, editorial look.", "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80", "category": "Beauty", "items": ["item_10", "item_11"], "tips": "Apply the shimmer shade for extra pop.", "rating": 4.8, "views": "4.1k" },
+    { "id": "s1", "title": "Urban Neutral Layers", "description": "Trench coat and wide trousers paired with white sneakers and a nude makeup palette.", "image": "https://images.pexels.com/photos/7622383/pexels-photo-7622383.jpeg?auto=compress&cs=tinysrgb&w=800", "category": "Streetwear", "items": ["item_4", "item_9", "item_12"], "tips": "Keep the makeup matte for a street vibe.", "rating": 4.7, "views": "4.1k" }
+  ],
+  "items": [
+    { "id": "item_1", "name": "Premium Silk Gown", "brand": "Luxe Aura", "price": 350.0, "image": "https://images.pexels.com/photos/9849237/pexels-photo-9849237.jpeg?auto=compress&cs=tinysrgb&w=400", "category": "Dresses" },
+    { "id": "item_2", "name": "Gold block Heels", "brand": "Step In Gold", "price": 180.0, "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=400&q=80", "category": "Shoes" },
+    { "id": "item_7", "name": "Embroidered Khussa", "brand": "Heritage", "price": 65.0, "image": "https://images.unsplash.com/photo-1628144070014-9c5952f48e35?auto=format&fit=crop&w=400&q=80", "category": "Shoes" },
+    { "id": "item_8", "name": "Champagne Block Heels", "brand": "Luxe Step", "price": 120.0, "image": "https://images.unsplash.com/photo-1596609548086-85bbf8ddb6b9?auto=format&fit=crop&w=400&q=80", "category": "Shoes" },
+    { "id": "item_9", "name": "Classic White Sneakers", "brand": "Urban", "price": 85.0, "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=400&q=80", "category": "Shoes" },
+    { "id": "item_10", "name": "Velvet Lipstick Set", "brand": "Glow Beauty", "price": 45.0, "image": "https://images.unsplash.com/photo-1586776970152-d3b75752440f?auto=format&fit=crop&w=400&q=80", "category": "Makeup" },
+    { "id": "item_11", "name": "Shimmer Eyeshadow", "brand": "Elite", "price": 35.0, "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=400&q=80", "category": "Makeup" },
+    { "id": "item_12", "name": "Nude Face Palette", "brand": "Pure", "price": 55.0, "image": "https://images.unsplash.com/photo-1522338223523-d2d242fbca3e?auto=format&fit=crop&w=400&q=80", "category": "Makeup" },
+    { "id": "item_3", "name": "Embellished Clutch", "brand": "Gilded", "price": 95.0, "image": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=400&q=80", "category": "Accessories" }
+  ],
+  "collections": [
+    { "id": "col_1", "name": "Heritage Shoes", "image": "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=800&q=80" },
+    { "id": "col_2", "name": "Beauty Rituals", "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" },
+    { "id": "col_3", "name": "Royal Footwear", "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80" }
+  ],
+  "categories": ["Evening", "Streetwear", "Summer", "Shoes", "Makeup", "Accessories"],
+  "style_tips": [
+    { "title": "Makeup & Modesty", "content": "Match your lipstick to a minor color in your abaya for a cohesive look." },
+    { "title": "Khussa Care", "content": "Always store handcrafted khussa in a dust bag to preserve the embroidery." },
+    { "title": "Heel Height", "content": "Block heels are perfect for long events as they provide both height and comfort." }
+  ],
+  "daily_inspiration": {
+    "quote": "Outer beauty is inner beauty made visible.",
+    "author": "Paulo Coelho",
+    "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "exercises": [
+    {
+      "id": "1",
+      "name": "Push Ups",
+      "category": "Upper Body",
+      "image": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&q=80",
+      "description": "A classic upper body exercise that works your chest, shoulders, and triceps.",
+      "instructions": [
+        "Start in a plank position with hands slightly wider than shoulder-width.",
+        "Lower your body until your chest nearly touches the floor.",
+        "Push yourself back up to the starting position.",
+        "Keep your core tight and back straight throughout."
+      ],
+      "duration": 60,
+      "defaultSets": 3,
+      "defaultReps": 15,
+      "restTime": 60
+    },
+    {
+      "id": "2",
+      "name": "Squats",
+      "category": "Lower Body",
+      "image": "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=500&q=80",
+      "description": "The fundamental lower body exercise for building leg strength and power.",
+      "instructions": [
+        "Stand with feet shoulder-width apart.",
+        "Lower your hips back and down as if sitting in a chair.",
+        "Keep your chest up and knees behind your toes.",
+        "Drive through your heels to return to standing."
+      ],
+      "duration": 60,
+      "defaultSets": 3,
+      "defaultReps": 20,
+      "restTime": 60
+    },
+    {
+      "id": "3",
+      "name": "Plank",
+      "category": "Core",
+      "image": "https://images.unsplash.com/photo-1594882645126-14020914d58d?w=500&q=80",
+      "description": "An essential core stability exercise.",
+      "instructions": [
+        "Start in a forearm plank position.",
+        "Keep your body in a straight line from head to heels.",
+        "Engage your core and hold the position.",
+        "Don't let your hips sag or rise."
+      ],
+      "duration": 60,
+      "defaultSets": 3,
+      "defaultReps": 1,
+      "restTime": 30
+    },
+    {
+      "id": "4",
+      "name": "Jumping Jacks",
+      "category": "Cardio",
+      "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&q=80",
+      "description": "A full-body cardiovascular exercise.",
+      "instructions": [
+        "Stand with feet together and arms at sides.",
+        "Jump while spreading legs and raising arms above head.",
+        "Jump again to return to starting position.",
+        "Repeat in a fluid motion."
+      ],
+      "duration": 30,
+      "defaultSets": 3,
+      "defaultReps": 30,
+      "restTime": 30
+    },
+    {
+      "id": "5",
+      "name": "Lunges",
+      "category": "Lower Body",
+      "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80",
+      "description": "Great for balance and leg strength.",
+      "instructions": [
+        "Step forward with one leg and lower your hips.",
+        "Both knees should be bent at a 90-degree angle.",
+        "Keep your front knee above your ankle.",
+        "Push back to starting position and switch legs."
+      ],
+      "duration": 60,
+      "defaultSets": 3,
+      "defaultReps": 12,
+      "restTime": 60
+    },
+    {
+      "id": "6",
+      "name": "Burpees",
+      "category": "Full Body",
+      "image": "https://images.unsplash.com/photo-1434682772747-f16d3ea162c3?w=500&q=80",
+      "description": "High-intensity full body exercise.",
+      "instructions": [
+        "From standing, drop into a squat and place hands on floor.",
+        "Kick feet back into a plank.",
+        "Perform a push-up.",
+        "Jump feet back to hands and jump up into the air."
+      ],
+      "duration": 60,
+      "defaultSets": 3,
+      "defaultReps": 10,
+      "restTime": 90
+    }
+  ]
+}

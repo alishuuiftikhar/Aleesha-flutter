@@ -1,0 +1,22 @@
+[
+  {
+    "id": "p1",
+    "name": "Romantic Bali Gateway",
+    "destination": "Bali",
+    "imageUrl": "https://images.unsplash.com/photo-1537996194471-e657df975ab4",
+    "durationDays": 5,
+    "pricePerPerson": 800,
+    "description": "Experience the ultimate romantic getaway in Bali with private villa stays and sunset dinners.",
+    "activities": ["Sunset Cruise", "Spa Treatment", "Temple Tour"]
+  },
+  {
+    "id": "p2",
+    "name": "Swiss Adventure Pack",
+    "destination": "Swiss Alps",
+    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+    "durationDays": 7,
+    "pricePerPerson": 1500,
+    "description": "Thrilling adventure in the heart of the Alps. Skiing, hiking and breathtaking views.",
+    "activities": ["Skiing", "Cable Car Ride", "Mountain Biking"]
+  }
+]

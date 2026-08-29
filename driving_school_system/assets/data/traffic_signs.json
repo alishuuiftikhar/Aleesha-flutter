@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "title": "Stop",
+    "category": "Regulatory",
+    "description": "Come to a complete stop at the stop line, before entering the intersection or before the crosswalk.",
+    "imageUrl": "https://api.allorigins.win/raw?url=https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.svg/1024px-STOP_sign.svg.png"
+  },
+  {
+    "id": "2",
+    "title": "Yield",
+    "category": "Regulatory",
+    "description": "Slow down and give the right-of-way to other traffic. Stop if necessary.",
+    "imageUrl": "https://api.allorigins.win/raw?url=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Yield_sign.svg/1024px-Yield_sign.svg.png"
+  },
+  {
+    "id": "3",
+    "title": "No Entry",
+    "category": "Prohibitory",
+    "description": "Do not enter the road where this sign is posted.",
+    "imageUrl": "https://api.allorigins.win/raw?url=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/No_entry.svg/1024px-No_entry.svg.png"
+  },
+  {
+    "id": "4",
+    "title": "Speed Limit 50",
+    "category": "Regulatory",
+    "description": "The maximum speed permitted is 50 km/h.",
+    "imageUrl": "https://api.allorigins.win/raw?url=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Speed_Limit_50.svg/1024px-Speed_Limit_50.svg.png"
+  },
+  {
+    "id": "5",
+    "title": "Slippery Road",
+    "category": "Warning",
+    "description": "The road ahead may be slippery when wet.",
+    "imageUrl": "https://api.allorigins.win/raw?url=https://api.allorigins.win/raw?url=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Slippery_road.svg/1024px-Slippery_road.svg.png"
+  }
+]

@@ -10,7 +10,7 @@ class CartService {
       String userId) async {
     final response = await _supabase
         .from('cart')
-        .select()
+        .select('*, products(*)')
         .eq('user_id', userId);
 
     return List<Map<String, dynamic>>.from(response);

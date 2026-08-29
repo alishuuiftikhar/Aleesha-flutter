@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     Future.microtask(() {
 
+      if (!mounted) return;
 
       Provider.of<ProductProvider>(
         context,
@@ -52,8 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
         context,
         listen:false,
       ).loadCategories();
-
-
 
     });
 
@@ -119,267 +117,156 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 
-          : SingleChildScrollView(
+          : RefreshIndicator(
 
 
-        padding:
-        const EdgeInsets.all(15),
+        onRefresh: () async {
 
 
+          await productProvider.loadProducts();
 
-        child:Column(
 
+          await categoryProvider.loadCategories();
 
-          crossAxisAlignment:
-          CrossAxisAlignment.start,
 
+        },
 
 
-          children:[
+        child: SingleChildScrollView(
 
 
+          physics: const AlwaysScrollableScrollPhysics(),
 
-            const Text(
 
-              "Categories",
+          padding:
+          const EdgeInsets.all(15),
 
-              style:
-              TextStyle(
 
-                fontSize:20,
 
-                fontWeight:
-                FontWeight.bold,
+          child:Column(
 
-              ),
 
-            ),
+            crossAxisAlignment:
+            CrossAxisAlignment.start,
 
 
 
-            const SizedBox(height:15),
+            children:[
 
 
 
+              const Text(
 
-            SizedBox(
+                "Categories",
 
+                style:
+                TextStyle(
 
-              height:120,
+                  fontSize:20,
 
+                  fontWeight:
+                  FontWeight.bold,
 
-
-              child:ListView.builder(
-
-
-                scrollDirection:
-                Axis.horizontal,
-
-
-
-                itemCount:
-                categoryProvider.categories.length,
-
-
-
-                itemBuilder:(context,index){
-
-
-
-                  final category =
-                  categoryProvider.categories[index];
-
-
-
-                  return SizedBox(
-
-
-                    width:110,
-
-
-
-                    child:CategoryCard(
-
-
-                      name:
-                      category.name,
-
-
-
-
-
-
-
-                      onTap:(){
-
-
-
-                        Navigator.push(
-
-
-                          context,
-
-
-                          MaterialPageRoute(
-
-
-                            builder:(context)=>
-
-                                CategoryProductsScreen(
-
-
-                                  categoryId:
-                                  category.id,
-
-
-                                  categoryName:
-                                  category.name,
-
-
-                                ),
-
-
-                          ),
-
-
-                        );
-
-
-                      },
-
-
-                    ),
-
-
-
-                  );
-
-
-
-                },
-
-
-
-              ),
-
-
-            ),
-
-
-
-
-            const SizedBox(height:25),
-
-
-
-
-            const Text(
-
-              "Products",
-
-              style:
-              TextStyle(
-
-                fontSize:20,
-
-                fontWeight:
-                FontWeight.bold,
-
-              ),
-
-            ),
-
-
-
-
-            const SizedBox(height:15),
-
-
-
-
-            GridView.builder(
-
-
-              shrinkWrap:true,
-
-
-              physics:
-              const NeverScrollableScrollPhysics(),
-
-
-
-              itemCount:
-              productProvider.products.length,
-
-
-
-              gridDelegate:
-
-              const SliverGridDelegateWithFixedCrossAxisCount(
-
-                crossAxisCount:2,
-
-                childAspectRatio:0.7,
-
-                crossAxisSpacing:10,
-
-                mainAxisSpacing:10,
+                ),
 
               ),
 
 
 
-
-              itemBuilder:(context,index){
-
-
-
-                final product =
-                productProvider.products[index];
+              const SizedBox(height:15),
 
 
 
 
-                return ProductCard(
+              SizedBox(
 
 
-                  name:
-                  product.name,
-
-
+                height:140,
 
 
 
+                child:ListView.builder(
 
 
-                  price:
-                  product.price,
-
-
-
-                  onTap:(){
+                  scrollDirection:
+                  Axis.horizontal,
 
 
 
-                    Navigator.push(
+                  itemCount:
+                  categoryProvider.categories.length,
 
 
-                      context,
+
+                  itemBuilder:(context,index){
 
 
-                      MaterialPageRoute(
+
+                    final category =
+                    categoryProvider.categories[index];
 
 
-                        builder:(context)=>
 
-                            ProductDetailScreen(
+                    return SizedBox(
 
-                              product:product,
+
+                      width:110,
+
+
+
+                      child:CategoryCard(
+
+
+                        name:
+                        category.name,
+
+
+
+                        image:
+                        category.image,
+
+
+
+                        onTap:(){
+
+
+
+                          Navigator.push(
+
+
+                            context,
+
+
+                            MaterialPageRoute(
+
+
+                              builder:(context)=>
+
+                                  CategoryProductsScreen(
+
+
+                                    categoryId:
+                                    category.id,
+
+
+                                    categoryName:
+                                    category.name,
+
+
+                                  ),
+
 
                             ),
 
 
+                          );
+
+
+                        },
+
+
                       ),
+
 
 
                     );
@@ -389,28 +276,196 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
 
 
-                );
+
+                ),
+
+
+              ),
 
 
 
-              },
+
+              const SizedBox(height:25),
 
 
-            ),
+
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Products",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => productProvider.loadProducts(),
+                    icon: const Icon(Icons.refresh, color: AppColors.primary),
+                  ),
+                ],
+              ),
 
 
 
-          ],
+
+              const SizedBox(height:15),
+
+
+
+
+              productProvider.products.isEmpty
+
+
+                  ? Center(
+
+
+                child:Column(
+
+
+                  children:[
+
+
+                    const Text("No products found"),
+
+
+                    TextButton(
+
+
+                      onPressed:()=>productProvider.loadProducts(),
+
+
+                      child:const Text("Refresh"),
+
+
+                    ),
+
+
+                  ],
+
+
+                ),
+
+
+              )
+
+
+                  : GridView.builder(
+
+
+                shrinkWrap:true,
+
+
+                physics:
+                const NeverScrollableScrollPhysics(),
+
+
+
+                itemCount:
+                productProvider.products.length,
+
+
+
+                gridDelegate:
+
+                const SliverGridDelegateWithFixedCrossAxisCount(
+
+                  crossAxisCount:2,
+
+                  childAspectRatio:0.7,
+
+                  crossAxisSpacing:10,
+
+                  mainAxisSpacing:10,
+
+                ),
+
+
+
+
+                itemBuilder:(context,index){
+
+
+
+                  final product =
+                  productProvider.products[index];
+
+
+
+
+                  return ProductCard(
+
+
+                    name:
+                    product.name,
+
+
+
+                    imageUrl:
+                    product.imageUrl,
+
+
+
+                    price:
+                    product.price,
+
+
+
+                    onTap:(){
+
+
+
+                      Navigator.push(
+
+
+                        context,
+
+
+                        MaterialPageRoute(
+
+
+                          builder:(context)=>
+
+                              ProductDetailScreen(
+
+                                product:product,
+
+                              ),
+
+
+                        ),
+
+
+                      );
+
+
+
+                    },
+
+
+                  );
+
+
+
+                },
+
+
+              ),
+
+
+
+            ],
+
+
+          ),
+
 
 
         ),
 
 
-
       ),
-
-
-
     );
 
 

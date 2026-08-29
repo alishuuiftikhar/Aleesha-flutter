@@ -1,0 +1,41 @@
+[
+  {
+    "id": "q1",
+    "title": "Basic Road Rules",
+    "description": "Test your knowledge on basic traffic laws and road etiquette.",
+    "questions": [
+      {
+        "question": "What should you do at a red light?",
+        "options": ["Speed up", "Stop", "Yield", "Turn right without stopping"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these signs indicates you must stop?",
+        "options": ["Yield", "No Entry", "Stop", "Speed Limit"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is the primary purpose of a seatbelt?",
+        "options": ["To hold you in place", "To look cool", "To prevent you from moving", "Safety during collision"],
+        "correctIndex": 3
+      }
+    ]
+  },
+  {
+    "id": "q2",
+    "title": "Traffic Signs",
+    "description": "Identify common traffic signs and their meanings.",
+    "questions": [
+      {
+        "question": "A triangular sign with a red border usually indicates?",
+        "options": ["Information", "Mandatory instruction", "Warning", "Prohibition"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What does a circular sign with a red border mean?",
+        "options": ["Prohibitory", "Warning", "Information", "Recommendation"],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

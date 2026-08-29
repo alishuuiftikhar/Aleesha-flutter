@@ -38,6 +38,8 @@ class ProductService{
 
     required String description,
 
+    required String imageUrl,
+
     required int categoryId,
 
   }) async{
@@ -52,6 +54,8 @@ class ProductService{
       'price':price,
 
       'description':description,
+
+      'image_url':imageUrl,
 
       'category_id':categoryId,
 
@@ -73,6 +77,8 @@ class ProductService{
 
     required String description,
 
+    required String imageUrl,
+
     required int categoryId,
 
   }) async{
@@ -87,6 +93,8 @@ class ProductService{
       'price':price,
 
       'description':description,
+
+      'image_url':imageUrl,
 
       'category_id':categoryId,
 

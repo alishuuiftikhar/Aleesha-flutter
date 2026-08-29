@@ -22,8 +22,9 @@ class ProductProvider extends ChangeNotifier{
 
 
     try{
-
+      debugPrint("Fetching products from Supabase...");
       final data=await ProductService.getProducts();
+      debugPrint("Data received: ${data.length} items");
 
 
       _products=data
@@ -39,7 +40,7 @@ class ProductProvider extends ChangeNotifier{
     }catch(e){
 
       debugPrint(
-        "Product Error: $e",
+        "PRODUCT PROVIDER ERROR: $e",
       );
 
       _products=[];

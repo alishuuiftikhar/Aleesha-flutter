@@ -1,7 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../models/category_model.dart';
 import '../services/category_service.dart';
 import '../services/product_service.dart';
+import '../services/storage_service.dart';
 import '../theme/app_colors.dart';
 
 class AddProductScreen extends StatefulWidget{
@@ -23,6 +26,9 @@ class _AddProductScreenState extends State<AddProductScreen>{
   List<CategoryModel> categories=[];
 
   CategoryModel? selectedCategory;
+
+  XFile? imageFile;
+  Uint8List? imageBytes;
 
   bool loading=false;
 
@@ -49,18 +55,46 @@ class _AddProductScreenState extends State<AddProductScreen>{
   }
 
 
-  Future<void> loadCategories() async{
+  Future<void> loadCategories() async {
+    try {
+      final data = await CategoryService.getCategories();
+      setState(() {
+        categories = data;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error loading categories: $e")),
+      );
+    }
+  }
 
-    final data=
-    await CategoryService.getCategories();
 
-    setState((){
 
-      categories=data;
+  Future<void> pickImage() async{
 
-    });
+    final picker=ImagePicker();
+
+    final pickedFile=
+    await picker.pickImage(
+
+      source:ImageSource.gallery,
+
+    );
+
+
+    if(pickedFile!=null){
+      final bytes = await pickedFile.readAsBytes();
+      setState((){
+        imageFile=pickedFile;
+        imageBytes = bytes;
+      });
+
+    }
 
   }
+
+
 
 
   Future<void> saveProduct() async{
@@ -68,12 +102,13 @@ class _AddProductScreenState extends State<AddProductScreen>{
     if(nameController.text.trim().isEmpty ||
         priceController.text.trim().isEmpty ||
         descriptionController.text.trim().isEmpty ||
-        selectedCategory==null){
+        selectedCategory==null ||
+        imageFile==null){
 
       ScaffoldMessenger.of(context).showSnackBar(
 
         const SnackBar(
-          content:Text("Please fill all fields"),
+          content:Text("Please fill all fields and select an image"),
         ),
 
       );
@@ -88,6 +123,12 @@ class _AddProductScreenState extends State<AddProductScreen>{
 
     try{
 
+
+      final imageUrl=
+      await StorageService.uploadImage(imageFile!);
+
+
+
       await ProductService.addProduct(
 
         name:nameController.text.trim(),
@@ -98,6 +139,8 @@ class _AddProductScreenState extends State<AddProductScreen>{
 
         description:
         descriptionController.text.trim(),
+
+        imageUrl:imageUrl,
 
         categoryId:
         selectedCategory!.id!,
@@ -125,6 +168,9 @@ class _AddProductScreenState extends State<AddProductScreen>{
       setState((){
 
         selectedCategory=null;
+
+        imageFile=null;
+        imageBytes=null;
 
       });
 
@@ -174,6 +220,79 @@ class _AddProductScreenState extends State<AddProductScreen>{
         child:Column(
 
           children:[
+
+
+
+            GestureDetector(
+
+              onTap:pickImage,
+
+              child:Container(
+
+                height:200,
+
+                width:double.infinity,
+
+                decoration:BoxDecoration(
+
+                  color:Colors.grey[200],
+
+                  borderRadius:
+                  BorderRadius.circular(15),
+
+                  border:Border.all(
+                    color:Colors.grey,
+                  ),
+
+                ),
+
+
+                child:imageBytes!=null
+
+
+                    ?ClipRRect(
+
+                  borderRadius:
+                  BorderRadius.circular(15),
+
+                  child:Image.memory(
+
+                    imageBytes!,
+
+                    fit:BoxFit.contain,
+
+                  ),
+
+                )
+
+
+                    :const Column(
+
+                  mainAxisAlignment:
+                  MainAxisAlignment.center,
+
+                  children:[
+
+                    Icon(
+                      Icons.add_a_photo,
+                      size:50,
+                    ),
+
+                    Text("Pick Product Image"),
+
+                  ],
+
+                ),
+
+              ),
+
+            ),
+
+
+
+            const SizedBox(height:20),
+
+
 
 
             TextField(

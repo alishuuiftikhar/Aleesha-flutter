@@ -1,0 +1,7 @@
+[
+  {"name": "All", "icon": "category"},
+  {"name": "Beach", "icon": "beach_access"},
+  {"name": "Mountain", "icon": "terrain"},
+  {"name": "Island", "icon": "island_moments"},
+  {"name": "Cultural", "icon": "museum"}
+]

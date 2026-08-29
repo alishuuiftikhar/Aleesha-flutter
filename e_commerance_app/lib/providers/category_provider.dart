@@ -32,16 +32,14 @@ class CategoryProvider extends ChangeNotifier{
 
 
     try{
-
-
+      debugPrint("Fetching categories...");
       _categories =
       await CategoryService.getCategories();
-
+      debugPrint("Categories loaded: ${_categories.length}");
 
 
     }catch(e){
-
-
+      debugPrint("CATEGORY PROVIDER ERROR: $e");
       _categories=[];
 
 

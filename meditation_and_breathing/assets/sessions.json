@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Morning Calm",
+    "description": "Start your day with a peaceful mind.",
+    "imageUrl": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&q=80",
+    "durationMinutes": 10,
+    "category": "Focus",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  },
+  {
+    "id": "2",
+    "title": "Deep Sleep",
+    "description": "Release the day and drift into sleep.",
+    "imageUrl": "https://images.unsplash.com/photo-1511295742364-917e70351634?w=500&q=80",
+    "durationMinutes": 20,
+    "category": "Sleep",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+  },
+  {
+    "id": "3",
+    "title": "Stress Relief",
+    "description": "A quick session to calm your nerves.",
+    "imageUrl": "https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=500&q=80",
+    "durationMinutes": 15,
+    "category": "Stress",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+  },
+  {
+    "id": "4",
+    "title": "Mindful Breathing",
+    "description": "Focus on your breath to find center.",
+    "imageUrl": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=500&q=80",
+    "durationMinutes": 5,
+    "category": "Breathing",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+  }
+]

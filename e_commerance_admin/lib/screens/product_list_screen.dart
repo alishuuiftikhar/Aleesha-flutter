@@ -95,6 +95,33 @@ class _ProductListScreenState extends State<ProductListScreen>{
 
             child:ListTile(
 
+              leading:product.imageUrl.isNotEmpty
+
+                  ?ClipRRect(
+
+                borderRadius:
+                BorderRadius.circular(8),
+
+                child:Image.network(
+
+                  product.imageUrl,
+
+                  width:50,
+
+                  height:50,
+
+                  fit:BoxFit.cover,
+
+                ),
+
+              )
+
+                  :const Icon(
+                Icons.image,
+                size:50,
+              ),
+
+
               title:Text(
                 product.name,
               ),
@@ -112,6 +139,12 @@ class _ProductListScreenState extends State<ProductListScreen>{
 
                   Text(
                     product.description,
+
+                    maxLines:1,
+
+                    overflow:
+                    TextOverflow.ellipsis,
+
                   ),
 
                 ],

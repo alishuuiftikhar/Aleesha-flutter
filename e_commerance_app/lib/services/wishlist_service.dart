@@ -10,7 +10,7 @@ class WishlistService {
       String userId) async {
     final response = await _supabase
         .from('wishlist')
-        .select()
+        .select('*, products(*)')
         .eq('user_id', userId);
 
     return List<Map<String, dynamic>>.from(response);

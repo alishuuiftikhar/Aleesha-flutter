@@ -1,101 +1,68 @@
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget{
-
   final String name;
+  final String imageUrl;
   final double price;
   final VoidCallback onTap;
 
   const ProductCard({
     super.key,
     required this.name,
+    required this.imageUrl,
     required this.price,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context){
-
-    return InkWell(
-
-      onTap:onTap,
-
-      borderRadius:BorderRadius.circular(12),
-
-      child:Card(
-
-        elevation:3,
-
-        shape:RoundedRectangleBorder(
-          borderRadius:BorderRadius.circular(12),
+    return Card(
+      elevation: 4,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                color: Colors.grey[100],
+                child: imageUrl.isNotEmpty 
+                  ? Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      errorBuilder: (context, error, stack) {
+                        return const Center(child: Icon(Icons.broken_image, size: 40, color: Colors.grey));
+                      },
+                    )
+                  : const Center(child: Icon(Icons.image, size: 40, color: Colors.grey)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    "\$${price.toStringAsFixed(2)}",
+                    style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-
-        child:Padding(
-
-          padding:const EdgeInsets.all(12),
-
-          child:Column(
-
-            mainAxisAlignment:MainAxisAlignment.center,
-
-            children:[
-
-              const Icon(
-                Icons.shopping_bag,
-                size:60,
-                color:Colors.deepPurple,
-              ),
-
-              const SizedBox(height:15),
-
-              Text(
-                name,
-                textAlign:TextAlign.center,
-                maxLines:2,
-                overflow:TextOverflow.ellipsis,
-                style:const TextStyle(
-                  fontSize:16,
-                  fontWeight:FontWeight.bold,
-                ),
-              ),
-
-              const SizedBox(height:10),
-
-              Text(
-                "\$${price.toStringAsFixed(2)}",
-                style:const TextStyle(
-                  fontSize:18,
-                  color:Colors.green,
-                  fontWeight:FontWeight.bold,
-                ),
-              ),
-
-              const Spacer(),
-
-              SizedBox(
-
-                width:double.infinity,
-
-                child:ElevatedButton(
-
-                  onPressed:onTap,
-
-                  child:const Text("View"),
-
-                ),
-
-              ),
-
-            ],
-
-          ),
-
-        ),
-
       ),
-
     );
-
   }
-
 }

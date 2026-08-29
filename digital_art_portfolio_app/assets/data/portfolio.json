@@ -1,0 +1,154 @@
+{
+  "artist": {
+    "name": "Aleesha Creative",
+    "bio": "Digital illustrator and concept artist specializing in ethereal landscapes and character design. I blend soft palettes with intricate details to create immersive worlds that bridge the gap between dreams and reality. With over 5 years of experience in the digital art space, I focus on storytelling through color and light.",
+    "skills": ["Digital Painting", "Concept Art", "UI/UX Design", "3D Modeling", "Character Design", "Motion Graphics", "Art Direction"],
+    "services": [
+      {
+        "title": "Custom Illustrations",
+        "description": "High-quality custom digital paintings for your personal or commercial projects, from book covers to album art."
+      },
+      {
+        "title": "Character Design",
+        "description": "Unique character concepts with full turnarounds, expression sheets, and personality profiles."
+      },
+      {
+        "title": "Environment Concept Art",
+        "description": "Detailed background and environment designs for games, animation, and film productions."
+      },
+      {
+        "title": "Brand Visuals",
+        "description": "Translating brand identities into stunning visual assets that resonate with your target audience."
+      }
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/aleesha_creative",
+      "twitter": "https://twitter.com/aleesha_art",
+      "artstation": "https://artstation.com/aleesha",
+      "email": "contact@aleesha.art"
+    }
+  },
+  "artworks": [
+    {
+      "id": "1",
+      "title": "Lavender Dreams",
+      "category": "Illustration",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+      "description": "A surreal landscape featuring floating islands and purple clouds. Created to evoke a sense of peace and wonder.",
+      "isFavorite": false
+    },
+    {
+      "id": "2",
+      "title": "Violet Neon",
+      "category": "Concept Art",
+      "image": "https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&q=80&w=800",
+      "description": "Cyberpunk city streets illuminated by violet and magenta neon lights. A study in high-contrast urban environments.",
+      "isFavorite": false
+    },
+    {
+      "id": "3",
+      "title": "Ethereal Being",
+      "category": "Character Design",
+      "image": "https://images.unsplash.com/photo-1614728263952-84ea206f99b6?auto=format&fit=crop&q=80&w=800",
+      "description": "A cosmic entity woven from light and shadow. Exploring the boundaries of human-like forms in digital painting.",
+      "isFavorite": false
+    },
+    {
+      "id": "4",
+      "title": "Midnight Bloom",
+      "category": "Illustration",
+      "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800",
+      "description": "Glow-in-the-dark flowers in a mysterious forest. Focus on bioluminescent textures and soft ambient lighting.",
+      "isFavorite": false
+    },
+    {
+      "id": "5",
+      "title": "Magenta Sunset",
+      "category": "Concept Art",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+      "description": "An alien planet with two suns setting over a pink ocean. A landscape exploration for a sci-fi project.",
+      "isFavorite": false
+    },
+    {
+      "id": "6",
+      "title": "Stormy Pastels",
+      "category": "Illustration",
+      "image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&q=80&w=800",
+      "description": "A dramatic storm rendered in soft pastel colors. Combining chaotic weather elements with a gentle color palette.",
+      "isFavorite": false
+    },
+    {
+      "id": "7",
+      "title": "Cyber Oracle",
+      "category": "Character Design",
+      "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=800",
+      "description": "A character blending traditional mystical elements with futuristic cybernetics.",
+      "isFavorite": false
+    },
+    {
+      "id": "8",
+      "title": "Quartz Valley",
+      "category": "Concept Art",
+      "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=800",
+      "description": "A valley filled with giant glowing crystals. A study in light refraction and mineral textures.",
+      "isFavorite": false
+    },
+    {
+      "id": "9",
+      "title": "Velvet Horizon",
+      "category": "Illustration",
+      "image": "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=800",
+      "description": "A smooth gradient landscape evoking the feeling of velvet fabric under a setting sun.",
+      "isFavorite": false
+    },
+    {
+      "id": "10",
+      "title": "Nebula Dancer",
+      "category": "Character Design",
+      "image": "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=800",
+      "description": "A dancer whose movements leave trails of cosmic dust. Capturing dynamic motion in a static image.",
+      "isFavorite": false
+    },
+    {
+      "id": "11",
+      "title": "Amethyst Citadel",
+      "category": "Concept Art",
+      "image": "https://images.unsplash.com/photo-1536431311719-398b6704d4cc?auto=format&fit=crop&q=80&w=800",
+      "description": "A fortress built into a mountain of purple stone. Design focus on architecture and verticality.",
+      "isFavorite": false
+    },
+    {
+      "id": "12",
+      "title": "Floral Synth",
+      "category": "Illustration",
+      "image": "https://images.unsplash.com/photo-1558591710-4b4a1ad0f048?auto=format&fit=crop&q=80&w=800",
+      "description": "Digital flowers blooming from a circuit board. A metaphor for nature and technology merging.",
+      "isFavorite": false
+    },
+    {
+      "id": "13",
+      "title": "Prism Guard",
+      "category": "Character Design",
+      "image": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&q=80&w=800",
+      "description": "A warrior clad in armor made of geometric glass. Exploring transparency and reflections in character gear.",
+      "isFavorite": false
+    },
+    {
+      "id": "14",
+      "title": "Ocean of Stars",
+      "category": "Concept Art",
+      "image": "https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&q=80&w=800",
+      "description": "A sea that reflects the galaxy above with perfect clarity. A study in water reflections and dark color values.",
+      "isFavorite": false
+    },
+    {
+      "id": "15",
+      "title": "Magenta Muse",
+      "category": "Illustration",
+      "image": "https://images.unsplash.com/photo-1550684847-75bdda21cc95?auto=format&fit=crop&q=80&w=800",
+      "description": "A portrait focusing on bold magenta tones and expressive brushwork.",
+      "isFavorite": false
+    }
+  ],
+  "categories": ["All", "Illustration", "Concept Art", "Character Design"]
+}

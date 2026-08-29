@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../theme/app_colors.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_textfield.dart';
 import '../services/order_service.dart';
+import '../providers/auth_provider.dart';
 
 class CheckoutScreen extends StatefulWidget {
-
   final double total;
+  final List<Map<String, dynamic>> items;
 
   const CheckoutScreen({
     super.key,
     required this.total,
+    required this.items,
   });
 
 
@@ -40,17 +43,34 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
     });
 
 
-    try{
+    if (nameController.text.isEmpty ||
+        phoneController.text.isEmpty ||
+        addressController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please fill all details")),
+      );
+      setState(() => loading = false);
+      return;
+    }
 
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final userId = authProvider.user?.id;
 
+    if (userId == null) {
+      setState(() => loading = false);
+      return;
+    }
+
+    try {
       await OrderService.createOrder(
-
-        userId:"current_user_id",
-
-        totalAmount:widget.total,
-
-        status:"Pending",
-
+        userId: userId,
+        totalAmount: widget.total,
+        status: "Pending",
+        fullName: nameController.text.trim(),
+        phone: phoneController.text.trim(),
+        address: addressController.text.trim(),
+        paymentMethod: paymentMethod,
+        items: widget.items,
       );
 
 
@@ -204,7 +224,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
 
             DropdownButtonFormField<String>(
 
-              value:paymentMethod,
+              initialValue:paymentMethod,
 
 
               items:[

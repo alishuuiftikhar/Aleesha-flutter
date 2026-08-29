@@ -230,6 +230,10 @@ class _CategoryProductsScreenState
 
 
 
+            imageUrl:
+            product.imageUrl,
+
+
 
             price:
             product.price,
