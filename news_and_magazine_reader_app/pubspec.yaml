@@ -1,0 +1,28 @@
+name: news_and_magazine_reader_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  supabase_flutter: ^2.6.0
+  provider: ^6.1.2
+  intl: ^0.19.0
+  cached_network_image: ^3.4.1
+  google_fonts: ^6.2.1
+  share_plus: ^10.1.4
+  shimmer: ^3.0.0
+  timeago: ^3.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

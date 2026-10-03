@@ -1,0 +1,22 @@
+[
+  {
+    "id": "e1",
+    "title": "Renaissance Masters",
+    "museumId": "m1",
+    "description": "A comprehensive look at the masters of the Italian Renaissance.",
+    "schedule": "Oct 2023 - Jan 2024",
+    "imageUrl": "https://images.unsplash.com/photo-1544967082-d9d25d867d66?q=80&w=800",
+    "type": "Special Exhibition",
+    "artworkIds": ["w1"]
+  },
+  {
+    "id": "e2",
+    "title": "Impressionist Light",
+    "museumId": "m2",
+    "description": "Exploring the use of light and color in Impressionist works.",
+    "schedule": "Nov 2023 - Feb 2024",
+    "imageUrl": "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800",
+    "type": "Permanent Collection",
+    "artworkIds": ["w2", "w3"]
+  }
+]

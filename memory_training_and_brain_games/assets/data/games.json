@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mem_card_01",
+    "title": "Memory Match",
+    "description": "Find pairs of matching cards in this classic memory game.",
+    "icon": "grid_view",
+    "image": "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=500&q=80",
+    "type": "memoryCard",
+    "difficulty": "easy"
+  },
+  {
+    "id": "pattern_01",
+    "title": "Pattern Recall",
+    "description": "Memorize and reproduce the highlighted grid patterns.",
+    "icon": "apps",
+    "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=500&q=80",
+    "type": "patternMemory",
+    "difficulty": "easy"
+  },
+  {
+    "id": "number_01",
+    "title": "Digit Span",
+    "description": "Remember and type back the sequence of numbers shown.",
+    "icon": "numbers",
+    "image": "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=500&q=80",
+    "type": "numberMemory",
+    "difficulty": "easy"
+  },
+  {
+    "id": "sequence_01",
+    "title": "Follow the Path",
+    "description": "Repeat the sequence of lights and sounds in the correct order.",
+    "icon": "auto_awesome_motion",
+    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=500&q=80",
+    "type": "sequence",
+    "difficulty": "easy"
+  },
+  {
+    "id": "word_01",
+    "title": "Word Master",
+    "description": "Memorize a list of words and identify if you've seen them before.",
+    "icon": "text_fields",
+    "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&q=80",
+    "type": "wordMemory",
+    "difficulty": "easy"
+  },
+  {
+    "id": "spatial_01",
+    "title": "Spatial Orientation",
+    "description": "Determine the final position of an object after multiple rotations.",
+    "icon": "explore",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=80",
+    "type": "spatialNavigation",
+    "difficulty": "medium"
+  },
+  {
+    "id": "speed_01",
+    "title": "Eagle Eye",
+    "description": "Find the unique object among a group of similar items quickly.",
+    "icon": "visibility",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500&q=80",
+    "type": "speedSearch",
+    "difficulty": "easy"
+  },
+  {
+    "id": "math_01",
+    "title": "Quick Math",
+    "description": "Solve arithmetic problems against the clock to boost mental speed.",
+    "icon": "calculate",
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&q=80",
+    "type": "mathLogic",
+    "difficulty": "medium"
+  },
+  {
+    "id": "color_01",
+    "title": "Stroop Test",
+    "description": "Identify the color of the text, not the word itself.",
+    "icon": "palette",
+    "image": "https://images.unsplash.com/photo-1533282960533-51328aa49826?w=500&q=80",
+    "type": "colorMatch",
+    "difficulty": "hard"
+  },
+  {
+    "id": "logic_01",
+    "title": "Riddle Solver",
+    "description": "Use logic to solve complex situational puzzles and riddles.",
+    "icon": "lightbulb",
+    "image": "https://images.unsplash.com/photo-1576089238269-4f806daf3d97?w=500&q=80",
+    "type": "logicPuzzle",
+    "difficulty": "hard"
+  }
+]

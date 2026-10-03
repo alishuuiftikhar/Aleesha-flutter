@@ -1,0 +1,26 @@
+[
+  {
+    "id": "a1",
+    "name": "Leonardo da Vinci",
+    "bio": "Leonardo da Vinci was an Italian polymath of the High Renaissance who was active as a painter, draughtsman, engineer, scientist, theorist, sculptor, and architect.",
+    "imageUrl": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=400",
+    "period": "Renaissance",
+    "artworkIds": ["w1"]
+  },
+  {
+    "id": "a2",
+    "name": "Vincent van Gogh",
+    "bio": "Vincent Willem van Gogh was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of Western art.",
+    "imageUrl": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400",
+    "period": "Post-Impressionism",
+    "artworkIds": ["w2"]
+  },
+  {
+    "id": "a3",
+    "name": "Claude Monet",
+    "bio": "Oscar-Claude Monet was a French painter and founder of impressionist painting who is seen as a key precursor to modernism.",
+    "imageUrl": "https://images.unsplash.com/photo-1579762792188-fc338100e9b8?q=80&w=400",
+    "period": "Impressionism",
+    "artworkIds": ["w3"]
+  }
+]

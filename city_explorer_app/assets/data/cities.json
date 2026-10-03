@@ -1,0 +1,87 @@
+[
+  {
+    "id": "1",
+    "name": "San Francisco",
+    "country": "USA",
+    "description": "The City by the Bay, famous for the Golden Gate Bridge, steep streets, and vibrant tech culture.",
+    "imageUrl": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1000&q=80",
+    "places": [
+      {
+        "id": "sf1",
+        "name": "Golden Gate Bridge",
+        "category": "Attractions",
+        "description": "An iconic suspension bridge spanning the Golden Gate strait.",
+        "rating": 4.9,
+        "imageUrl": "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80",
+        "gallery": [
+          "https://images.unsplash.com/photo-1449034446853-66c86144b0ad",
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
+          "https://images.unsplash.com/photo-1422673322737-08077977a421"
+        ]
+      },
+      {
+        "id": "sf2",
+        "name": "Alcatraz Island",
+        "category": "Museums",
+        "description": "Former federal prison on a rocky island in San Francisco Bay.",
+        "rating": 4.7,
+        "imageUrl": "https://images.unsplash.com/photo-1533031021703-0c4659b8be92?auto=format&fit=crop&w=800&q=80",
+        "gallery": []
+      },
+      {
+        "id": "sf3",
+        "name": "Gary Danko",
+        "category": "Restaurants",
+        "description": "Refined French-influenced California cuisine in a luxurious setting.",
+        "rating": 4.8,
+        "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
+        "gallery": []
+      },
+      {
+        "id": "sf4",
+        "name": "Golden Gate Park",
+        "category": "Parks",
+        "description": "Large urban park containing gardens, museums, and a conservatory.",
+        "rating": 4.6,
+        "imageUrl": "https://images.unsplash.com/photo-1542385381-49fa21432238?auto=format&fit=crop&w=800&q=80",
+        "gallery": []
+      },
+      {
+        "id": "sf5",
+        "name": "Union Square",
+        "category": "Shopping",
+        "description": "The central shopping, hotel, and theater district that surrounds the plaza.",
+        "rating": 4.5,
+        "imageUrl": "https://images.unsplash.com/photo-1541441865910-a228308cc4f7?auto=format&fit=crop&w=800&q=80",
+        "gallery": []
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Paris",
+    "country": "France",
+    "description": "The City of Light, known for its art, fashion, gastronomy and culture.",
+    "imageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=80",
+    "places": [
+      {
+        "id": "p1",
+        "name": "Eiffel Tower",
+        "category": "Attractions",
+        "description": "The iconic wrought-iron lattice tower on the Champ de Mars.",
+        "rating": 4.9,
+        "imageUrl": "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800&q=80",
+        "gallery": []
+      },
+      {
+        "id": "p2",
+        "name": "Louvre Museum",
+        "category": "Museums",
+        "description": "The world's largest art museum and a historic monument in Paris.",
+        "rating": 4.8,
+        "imageUrl": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80",
+        "gallery": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "title": "Origami Paper Crane",
+    "category": "Paper crafts",
+    "difficulty": "Medium",
+    "estimatedTime": "15 mins",
+    "description": "Learn the traditional Japanese art of paper folding with this classic crane project.",
+    "imageUrl": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=1000&auto=format&fit=crop",
+    "materials": ["Square origami paper", "Flat surface"],
+    "instructions": [
+      "Fold the paper in half diagonally to form a triangle.",
+      "Fold in half again to make a smaller triangle.",
+      "Open the flap and squash fold into a square.",
+      "Repeat on the other side.",
+      "Fold the edges towards the center to create a diamond shape."
+    ],
+    "isFavorite": false,
+    "isCompleted": false,
+    "notes": "",
+    "progress": 0.0
+  },
+  {
+    "id": "2",
+    "title": "Boho Macrame Wall Hanging",
+    "category": "Decoration",
+    "difficulty": "Hard",
+    "estimatedTime": "2 hours",
+    "description": "Create a beautiful textured wall hanging using basic macrame knots.",
+    "imageUrl": "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?q=80&w=1000&auto=format&fit=crop",
+    "materials": ["Cotton macrame cord (3mm)", "Wooden dowel", "Scissors", "Measuring tape"],
+    "instructions": [
+      "Attach cords to the dowel using lark's head knots.",
+      "Create a row of square knots across the top.",
+      "Incorporate half-hitch knots for diagonal patterns.",
+      "Add fringe at the bottom and trim to desired shape.",
+      "Brush out the fringe for a soft look."
+    ],
+    "isFavorite": true,
+    "isCompleted": false,
+    "notes": "Need to buy more white cord.",
+    "progress": 0.4
+  },
+  {
+    "id": "3",
+    "title": "Watercolor Sunset Painting",
+    "category": "Painting",
+    "difficulty": "Easy",
+    "estimatedTime": "45 mins",
+    "description": "A relaxing project to explore color blending and gradients.",
+    "imageUrl": "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1000&auto=format&fit=crop",
+    "materials": ["Watercolor paper", "Watercolors", "Brushes", "Water jar", "Paper towel"],
+    "instructions": [
+      "Wet the paper lightly with clean water.",
+      "Apply yellow paint at the horizon line.",
+      "Blend in orange and then red as you move upwards.",
+      "Add dark purple or blue at the very top for depth.",
+      "Paint a simple silhouette of trees or mountains once dry."
+    ],
+    "isFavorite": false,
+    "isCompleted": true,
+    "notes": "Turned out great!",
+    "progress": 1.0
+  },
+  {
+    "id": "4",
+    "title": "Personalized Mug",
+    "category": "Handmade gifts",
+    "difficulty": "Easy",
+    "estimatedTime": "30 mins",
+    "description": "Customized mugs for your loved ones using porcelain markers.",
+    "imageUrl": "https://images.unsplash.com/photo-1517256011261-5038fa055fcf?q=80&w=1000&auto=format&fit=crop",
+    "materials": ["Plain ceramic mug", "Porcelain markers", "Oven"],
+    "instructions": [
+      "Clean the mug thoroughly with alcohol.",
+      "Draw your design using porcelain markers.",
+      "Let it dry for 24 hours.",
+      "Bake in the oven according to marker instructions to set the ink.",
+      "Let it cool completely before using."
+    ],
+    "isFavorite": false,
+    "isCompleted": false,
+    "notes": "",
+    "progress": 0.0
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "w1",
+    "title": "Mona Lisa",
+    "artistId": "a1",
+    "artistName": "Leonardo da Vinci",
+    "year": "1503",
+    "type": "Oil on poplar panel",
+    "museumId": "m1",
+    "description": "The Mona Lisa is a half-length portrait painting by Italian artist Leonardo da Vinci.",
+    "historicalContext": "Considered an archetypal masterpiece of the Italian Renaissance.",
+    "imageUrl": "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800"
+  },
+  {
+    "id": "w2",
+    "title": "The Starry Night",
+    "artistId": "a2",
+    "artistName": "Vincent van Gogh",
+    "year": "1889",
+    "type": "Oil on canvas",
+    "museumId": "m2",
+    "description": "The Starry Night is an oil-on-canvas painting by the Dutch Post-Impressionist painter Vincent van Gogh.",
+    "historicalContext": "Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence.",
+    "imageUrl": "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=800"
+  },
+  {
+    "id": "w3",
+    "title": "Water Lilies",
+    "artistId": "a3",
+    "artistName": "Claude Monet",
+    "year": "1919",
+    "type": "Oil on canvas",
+    "museumId": "m1",
+    "description": "Water Lilies is a series of approximately 250 oil paintings by French Impressionist Claude Monet.",
+    "historicalContext": "The paintings depict his flower garden at his home in Giverny.",
+    "imageUrl": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800"
+  }
+]

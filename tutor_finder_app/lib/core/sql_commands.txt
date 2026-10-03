@@ -1,0 +1,117 @@
+-- Create profiles table
+CREATE TABLE profiles (
+  id UUID REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
+  email TEXT NOT NULL,
+  full_name TEXT,
+  avatar_url TEXT,
+  role TEXT DEFAULT 'student' CHECK (role IN ('student', 'tutor')),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+-- Create tutors table
+CREATE TABLE tutors (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  profile_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  bio TEXT,
+  experience TEXT,
+  hourly_rate DECIMAL(10, 2) NOT NULL DEFAULT 0,
+  rating DECIMAL(3, 2) DEFAULT 0,
+  total_reviews INTEGER DEFAULT 0,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+-- Create subjects table
+CREATE TABLE subjects (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL UNIQUE,
+  icon TEXT
+);
+
+-- Create tutor_subjects junction table
+CREATE TABLE tutor_subjects (
+  tutor_id UUID REFERENCES tutors(id) ON DELETE CASCADE,
+  subject_id INTEGER REFERENCES subjects(id) ON DELETE CASCADE,
+  PRIMARY KEY (tutor_id, subject_id)
+);
+
+-- Create availability table
+CREATE TABLE availability (
+  id SERIAL PRIMARY KEY,
+  tutor_id UUID REFERENCES tutors(id) ON DELETE CASCADE,
+  day_of_week TEXT NOT NULL,
+  start_time TIME NOT NULL,
+  end_time TIME NOT NULL,
+  is_booked BOOLEAN DEFAULT FALSE
+);
+
+-- Create bookings table
+CREATE TABLE bookings (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  student_id UUID REFERENCES profiles(id),
+  tutor_id UUID REFERENCES tutors(id),
+  subject_id INTEGER REFERENCES subjects(id),
+  booking_date DATE NOT NULL,
+  start_time TIME NOT NULL,
+  end_time TIME NOT NULL,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'completed', 'cancelled')),
+  total_price DECIMAL(10, 2),
+  student_name TEXT,
+  student_phone TEXT,
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+-- Create favorites table
+CREATE TABLE favorites (
+  student_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  tutor_id UUID REFERENCES tutors(id) ON DELETE CASCADE,
+  PRIMARY KEY (student_id, tutor_id)
+);
+
+-- Create notifications table
+CREATE TABLE notifications (
+  id SERIAL PRIMARY KEY,
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  message TEXT NOT NULL,
+  is_read BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+-- RLS Policies (Enable RLS on all tables)
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE tutors ENABLE ROW LEVEL SECURITY;
+ALTER TABLE subjects ENABLE ROW LEVEL SECURITY;
+ALTER TABLE tutor_subjects ENABLE ROW LEVEL SECURITY;
+ALTER TABLE availability ENABLE ROW LEVEL SECURITY;
+ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE favorites ENABLE ROW LEVEL SECURITY;
+ALTER TABLE notifications ENABLE ROW LEVEL SECURITY;
+
+-- Basic Public Access Policies (For demo purposes)
+CREATE POLICY "Public profiles are viewable by everyone." ON profiles FOR SELECT USING (true);
+CREATE POLICY "Users can insert their own profile." ON profiles FOR INSERT WITH CHECK (auth.uid() = id);
+CREATE POLICY "Users can update own profile." ON profiles FOR UPDATE USING (auth.uid() = id);
+
+CREATE POLICY "Tutors are viewable by everyone." ON tutors FOR SELECT USING (true);
+CREATE POLICY "Subjects are viewable by everyone." ON subjects FOR SELECT USING (true);
+CREATE POLICY "Tutor subjects are viewable by everyone." ON tutor_subjects FOR SELECT USING (true);
+CREATE POLICY "Availability is viewable by everyone." ON availability FOR SELECT USING (true);
+
+CREATE POLICY "Users can view their own bookings." ON bookings FOR SELECT USING (auth.uid() = student_id OR auth.uid() IN (SELECT profile_id FROM tutors WHERE id = tutor_id));
+CREATE POLICY "Students can insert bookings." ON bookings FOR INSERT WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Relevant parties can update bookings." ON bookings FOR UPDATE USING (auth.uid() = student_id OR auth.uid() IN (SELECT profile_id FROM tutors WHERE id = tutor_id));
+
+-- Trigger for profile creation on signup
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS trigger AS $$
+BEGIN
+  INSERT INTO public.profiles (id, email, full_name, role)
+  VALUES (new.id, new.email, new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'role');
+  RETURN new;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE PROCEDURE public.handle_new_user();

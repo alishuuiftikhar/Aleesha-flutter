@@ -1,0 +1,50 @@
+[
+  {
+    "id": "m1",
+    "name": "The Grand Louvre",
+    "location": "Paris, France",
+    "description": "The world's largest art museum and a historic monument in Paris.",
+    "openingHours": "9:00 AM - 6:00 PM (Closed on Tuesdays)",
+    "ticketInfo": "Adults: €17, Free for under 18s.",
+    "visitorTips": "Arrive early and book tickets online to avoid long queues.",
+    "imageUrl": "https://images.unsplash.com/photo-1597923896141-d4de3119853e?q=80&w=800",
+    "category": "Art Museum",
+    "exhibitionIds": ["e1"],
+    "artworkIds": ["w1", "w3"],
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1491156855053-9cdff72c7f85?q=80&w=400",
+      "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=400"
+    ]
+  },
+  {
+    "id": "m2",
+    "name": "Metropolitan Museum of Art",
+    "location": "New York, USA",
+    "description": "The largest art museum in the Americas, colloquially 'the Met'.",
+    "openingHours": "10:00 AM - 5:00 PM",
+    "ticketInfo": "Adults: $30, Seniors: $22, Students: $17.",
+    "visitorTips": "Visit the rooftop garden for a great view of Central Park.",
+    "imageUrl": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=800",
+    "category": "Modern Art",
+    "exhibitionIds": ["e2"],
+    "artworkIds": ["w2"],
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1544967082-d9d25d867d66?q=80&w=400",
+      "https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=400"
+    ]
+  },
+  {
+    "id": "m3",
+    "name": "British Museum",
+    "location": "London, UK",
+    "description": "A public institution dedicated to human history, art and culture.",
+    "openingHours": "10:00 AM - 5:30 PM",
+    "ticketInfo": "Free entry for all visitors.",
+    "visitorTips": "Don't miss the Rosetta Stone and the Elgin Marbles.",
+    "imageUrl": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=800",
+    "category": "Historical",
+    "exhibitionIds": [],
+    "artworkIds": [],
+    "galleryImages": []
+  }
+]

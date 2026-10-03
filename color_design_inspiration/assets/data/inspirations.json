@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "title": "Minimalist Poster Design",
+    "category": "Graphic design",
+    "imageUrl": "https://images.unsplash.com/photo-1572044162444-ad60f128bde3?q=80&w=800&auto=format&fit=crop",
+    "description": "A clean, minimalist approach to poster design focusing on typography and whitespace.",
+    "author": "Elena Rossi",
+    "palette": ["#3D348B", "#7678ED", "#F3F0FF"]
+  },
+  {
+    "id": "2",
+    "title": "Modern Scandinavian Living",
+    "category": "Interior design",
+    "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop",
+    "description": "Bright and airy living room with wooden accents and neutral tones.",
+    "author": "Jonas Berg",
+    "palette": ["#DED7F5", "#FBFAFF", "#29233D"]
+  },
+  {
+    "id": "3",
+    "title": "Editorial Street Style",
+    "category": "Fashion",
+    "imageUrl": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
+    "description": "Vibrant street fashion photography capturing the essence of modern urban life.",
+    "author": "Marcus Thorne",
+    "palette": ["#F18701", "#3D348B", "#7678ED"]
+  },
+  {
+    "id": "4",
+    "title": "Architectural Geometry",
+    "category": "Photography",
+    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+    "description": "Exploring the lines and shadows of modern glass skyscrapers.",
+    "author": "Sarah Chen",
+    "palette": ["#29233D", "#DED7F5", "#7678ED"]
+  },
+  {
+    "id": "5",
+    "title": "Fintech Dashboard UI",
+    "category": "UI design",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bbda48658a7d?q=80&w=800&auto=format&fit=crop",
+    "description": "Data-heavy interface designed for clarity and ease of use in finance.",
+    "author": "Alex Rivera",
+    "palette": ["#3D348B", "#F18701", "#FBFAFF"]
+  },
+  {
+    "id": "6",
+    "title": "Sunset Hues Palette",
+    "category": "Color palettes",
+    "imageUrl": "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=800&auto=format&fit=crop",
+    "description": "A warm color palette inspired by evening sky over the ocean.",
+    "author": "Nature",
+    "palette": ["#F18701", "#7678ED", "#3D348B", "#DED7F5"]
+  },
+  {
+    "id": "7",
+    "title": "Abstract Geometric Art",
+    "category": "Graphic design",
+    "imageUrl": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop",
+    "description": "Bold shapes and contrasting colors create a dynamic visual experience.",
+    "author": "Victor Hugo",
+    "palette": ["#7678ED", "#F18701", "#29233D"]
+  },
+  {
+    "id": "8",
+    "title": "Bohemian Bedroom",
+    "category": "Interior design",
+    "imageUrl": "https://images.unsplash.com/photo-1522771739844-649f6d175d97?q=80&w=800&auto=format&fit=crop",
+    "description": "Cozy textures and warm lighting define this boho-chic space.",
+    "author": "Lila Moon",
+    "palette": ["#FBFAFF", "#F3F0FF", "#DED7F5"]
+  },
+  {
+    "id": "9",
+    "title": "High-Tech Apparel",
+    "category": "Fashion",
+    "imageUrl": "https://images.unsplash.com/photo-1539109136881-3be0610acf4b?q=80&w=800&auto=format&fit=crop",
+    "description": "Functional clothing meets futuristic aesthetics.",
+    "author": "Neo Styles",
+    "palette": ["#3D348B", "#29233D", "#7678ED"]
+  },
+  {
+    "id": "10",
+    "title": "Macro Nature",
+    "category": "Photography",
+    "imageUrl": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800&auto=format&fit=crop",
+    "description": "Close-up of dew drops on a leaf, highlighting natural patterns.",
+    "author": "Green Eye",
+    "palette": ["#F3F0FF", "#7678ED", "#3D348B"]
+  },
+  {
+    "id": "11",
+    "title": "Travel App UX",
+    "category": "UI design",
+    "imageUrl": "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=800&auto=format&fit=crop",
+    "description": "Immersive travel planning experience with high-quality photography.",
+    "author": "Wanderlust UI",
+    "palette": ["#FBFAFF", "#7678ED", "#F18701"]
+  },
+  {
+    "id": "12",
+    "title": "Pastel Dream Palette",
+    "category": "Color palettes",
+    "imageUrl": "https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=800&auto=format&fit=crop",
+    "description": "Soft and calming pastel colors for a gentle design feel.",
+    "author": "Soft Focus",
+    "palette": ["#F3F0FF", "#DED7F5", "#FBFAFF"]
+  }
+]
